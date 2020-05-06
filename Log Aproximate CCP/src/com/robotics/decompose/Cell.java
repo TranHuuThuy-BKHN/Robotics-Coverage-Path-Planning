@@ -44,12 +44,16 @@ public class Cell {
         this.x = x;
         this.y = y;
         this.obtacle = obtacle;
-        distance = Integer.MAX_VALUE;
+        distance = -1;
         mapCells.put(new Key(x, y), this);
     }
 
     public boolean isObtacle() {
         return obtacle;
+    }
+
+    public void setObtacle(boolean obtacle) {
+        this.obtacle = obtacle;
     }
 
     public int getDistance() {

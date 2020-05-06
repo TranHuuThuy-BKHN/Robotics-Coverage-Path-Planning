@@ -23,10 +23,10 @@ public class Environment {
             int xs[] = {x, x, x - 1, x + 1}, ys[] = {y - 1, y + 1, y, y};
             for (int i = 0; i < xs.length; i++) {
                 Cell nbh = Cell.mapCells.get(new Key(xs[i], ys[i]));
-                if (nbh != null && !nbh.isObtacle() && nbh.getDistance() == Integer.MAX_VALUE) {
+                if (nbh != null && !nbh.isObtacle() && nbh.getDistance() == -1) {
                     nbh.setDistance(c.getDistance() + 1);
-                    queue.push(nbh);
-                }else if(nbh != null && nbh.isObtacle()){
+                    queue.add(nbh);
+                } else if (nbh != null && nbh.isObtacle()) {
                     nbh.setDistance(-1);
                 }
             }
@@ -45,18 +45,23 @@ public class Environment {
     }
 
     public static void main(String[] args) {
-        Cell s = new Cell(0, 0, false);
-        Cell c1 = new Cell(0, 1, false);
 
-        Cell c2 = new Cell(1, 0, true);
-
-        Cell c3 = new Cell(1, 1, false);
-        Cell c4 = new Cell(2, 1, false);
-        Cell c5 = new Cell(2, 2, false);
-
-        ArrayList<Cell> cells = new ArrayList<>(Arrays.asList(s, c1, c2, c3, c4, c5));
+        ArrayList<Cell> cells = new ArrayList<>();
+        int row = 19, col = 10;
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                Cell c = new Cell(j - col, row - i, false);
+                if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
+                if (i >= 10 && i <= 14 && j >= 14 && j <= 16) c.setObtacle(true);
+                cells.add(c);
+            }
+        }
         Environment e = new Environment(cells);
-
-        System.out.println(c5.getDistance());
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                System.out.printf("%2d ", cells.get(20 * i + j).getDistance());
+            }
+            System.out.println();
+        }
     }
 }
