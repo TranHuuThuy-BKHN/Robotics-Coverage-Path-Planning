@@ -75,9 +75,7 @@ public class GroupTreeAlgorithm {
                     ArrayList<Cell> fistC2 = o2.getRoot().getContours().get(0).getCells();
                     int d1 = Math.min(s1.distanceToCell(fistC1.get(0)), s1.distanceToCell(fistC1.get(fistC1.size() - 1)));
                     int d2 = Math.min(s1.distanceToCell(fistC2.get(0)), s1.distanceToCell(fistC2.get(fistC2.size() - 1)));
-                    if (d1 < d2) return 1;
-                    else if (d1 > d2) return -1;
-                    else return 0;
+                    return d1 - d2;
                 }
             });
             for (Tree child : children)
