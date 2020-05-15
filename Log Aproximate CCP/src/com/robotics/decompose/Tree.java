@@ -11,6 +11,8 @@ public class Tree {
 
     private ArrayList<Tree> children;
 
+    int depth; // độ sâu của root
+
     public Tree(CcEnvironment root, ArrayList<Tree> children) {
         this.root = root;
         this.children = children;

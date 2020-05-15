@@ -21,6 +21,10 @@ public class CcEnvironment {
         public ArrayList<Cell> getCells() {
             return cells;
         }
+
+        public int getDistance(){
+            return cells.get(0).getDistance();
+        }
     }
 
     private ArrayList<Contour> contours;
