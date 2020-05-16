@@ -1,74 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cb85d5c-f1a8-48c7-914f-25c709dc265a" name="Default Changelist" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="4cb85d5c-f1a8-48c7-914f-25c709dc265a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Cell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#229#230#0" expanded="true" />
-                <element signature="e#418#419#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding>
-                <element signature="e#348#349#0" expanded="true" />
-                <element signature="e#390#391#0" expanded="true" />
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#302#303#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
-                <element signature="e#498#499#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Tree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-              <folding>
-                <element signature="e#332#333#0" expanded="true" />
-                <element signature="e#359#360#0" expanded="true" />
-                <element signature="e#403#404#0" expanded="true" />
-                <element signature="e#434#435#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -80,77 +24,53 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" />
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" />
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" />
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="697" />
-    <option name="height" value="735" />
-  </component>
+  <component name="ProjectId" id="1bpkmu7s4ye4IWjRU9VhXCxypP0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Log Aproximate CCP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Log Aproximate CCP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Log Aproximate CCP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Log Aproximate CCP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Log Aproximate CCP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Log Aproximate CCP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="robotics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Log Aproximate CCP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Log Aproximate CCP" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="robotics" type="462c0819:PsiDirectoryNode" />
-              <item name="decompose" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-    </panes>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager" selected="Application.Environment">
+    <configuration name="CcEnvironment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.decompose.CcEnvironment" />
+      <module name="Log Aproximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.decompose.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Environment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.decompose.Environment" />
+      <module name="Log Aproximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.decompose.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <item itemvalue="Application.Environment" />
+        <item itemvalue="Application.CcEnvironment" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -165,132 +85,58 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Tree.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-          <folding>
-            <element signature="e#332#333#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#266#267#0" expanded="true" />
-            <element signature="e#302#303#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#498#499#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-          <folding>
-            <element signature="e#195#196#0" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#418#419#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Cell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectJDKs.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="WindowStateProjectService">
+    <state x="683" y="225" width="544" height="599" key="#com.intellij.ide.util.MemberChooser" timestamp="1589600982106">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="683" y="225" width="544" height="599" key="#com.intellij.ide.util.MemberChooser/0.27.1920.988@0.27.1920.988" timestamp="1589600982106" />
+    <state x="801" y="413" width="308" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1589336612921">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="801" y="413" width="308" height="223" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.27.1920.988@0.27.1920.988" timestamp="1589336612921" />
+    <state x="1231" y="385" width="398" height="278" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog" timestamp="1589514742316">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="1231" y="385" width="398" height="278" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.27.1920.988@0.27.1920.988" timestamp="1589514742316" />
+    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl" timestamp="1589610588360">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.988@0.27.1920.988" timestamp="1589610588360" />
+    <state width="1874" height="254" key="GridCell.Tab.0.bottom" timestamp="1589610606822">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="254" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
+    <state width="1874" height="254" key="GridCell.Tab.0.center" timestamp="1589610606822">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="254" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
+    <state width="1874" height="254" key="GridCell.Tab.0.left" timestamp="1589610606821">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="254" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1589610606821" />
+    <state width="1874" height="254" key="GridCell.Tab.0.right" timestamp="1589610606822">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="254" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
+    <state x="443" y="98" width="1024" height="852" key="SettingsEditor" timestamp="1589610628296">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="443" y="98" width="1024" height="852" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1589610628296" />
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1589566885090">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1589566885090" />
+    <state x="624" y="123" width="662" height="802" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589601119360">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="624" y="123" width="662" height="802" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.988@0.27.1920.988" timestamp="1589601119360" />
+    <state x="624" y="236" key="run.anything.popup" timestamp="1589384513906">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="624" y="236" key="run.anything.popup/0.27.1920.988@0.27.1920.988" timestamp="1589384513906" />
+    <state x="1098" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1589559712981">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="1098" y="243" width="672" height="678" key="search.everywhere.popup/0.27.1920.988@0.27.1920.988" timestamp="1589559712981" />
   </component>
 </project>

@@ -11,13 +11,29 @@ public class Tree {
 
     private ArrayList<Tree> children;
 
+    public Tree(){}
+
     public Tree(CcEnvironment root, ArrayList<Tree> children) {
         this.root = root;
         this.children = children;
     }
 
+    public void setRoot(CcEnvironment cc){this.root = cc;}
+
+    public void addRoot(CcEnvironment.Contour contour){
+        this.root.addContour(contour);
+    }
+
     public CcEnvironment getRoot() {
         return root;
+    }
+
+    public void setChildren(ArrayList<Tree> children){
+        this.children = children;
+    }
+
+    public void addChild(Tree tree){
+        this.children.add(tree);
     }
 
     public ArrayList<Tree> getChildren() {

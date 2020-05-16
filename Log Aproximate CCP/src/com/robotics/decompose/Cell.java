@@ -64,6 +64,38 @@ public class Cell {
         this.distance = distance;
     }
 
+//    private int isSplitCell(){
+//        if(this != null && this.isObtacle() == false) return 0;
+//        if(this.x == 0){
+//
+//        }
+//    }
+
+    public Boolean isNextCellInCnt(Cell current, Cell next){
+        if (next.getDistance() != current.getDistance() && (next.getDistance()!= -1 || next != null)) return false;
+        if (next.getDistance() == current.getDistance()) return true;
+        //Neu o tiep theo la o thuoc duong bien hoac chuong ngai vat
+        //Kiem tra xem co ton tai o ke voi no thuoc duong bien hay khong
+        int x_next = next.x;
+        int y_next = next.y;
+        int xs[] = {x_next - 1, x_next - 1, x_next + 1, x_next + 1};
+        int ys[] = {y_next - 1, y_next + 1, y_next - 1, y_next - 1};
+        int count = 0;
+        for (int i = 0; i < 4; i++) {
+            Cell next_next = Cell.mapCells.get(new Key(xs[i], ys[i]));
+            if (next_next== null || next_next.getDistance() == -1) continue;
+            if (next_next.getDistance() == current.getDistance()) count++;
+        }
+        if (count < 2) return false;
+        else
+            return true;
+    }
+
+//    public Cell isNextCellOfNextCnt(Cell cur, Cell next){
+//        if (next.getDistance() != cur.getDistance() + 1) return null;
+//
+//    }
+
     public static void main(String[] args) {
         Cell c = new Cell(0, 0, false);
         Cell c2 = new Cell(-1, 0, true);

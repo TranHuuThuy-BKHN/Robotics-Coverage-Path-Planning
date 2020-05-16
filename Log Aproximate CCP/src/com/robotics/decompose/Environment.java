@@ -1,7 +1,12 @@
 package com.robotics.decompose;
 
+import com.robotics.decompose.CcEnvironment.TreeContour;
+
+import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 
 public class Environment {
@@ -9,9 +14,14 @@ public class Environment {
 
     private Tree tree;
 
+    private TreeContour treeContour;
+
+    public Environment(){
+    }
+
     public Environment(ArrayList<Cell> cells) {
         this.cells = cells;
-
+        this.treeContour = new TreeContour();
         // tính khoảng các các cell tới trạm sạc, sử dụng BFS
         Cell s = Cell.mapCells.get(new Key(0, 0)); // trạm sạc
         s.setDistance(0);
@@ -33,15 +43,41 @@ public class Environment {
         }
     }
 
-    public Tree getTree() {
+    public void setTreeContour() {
+        this.treeContour = this.treeContour.findAllContour(this.cells);
+    }
+
+    public Tree getTree(TreeContour treeContour) {
         if (tree == null) {
-            tree = convertTree();
+            tree = convertTree(treeContour);
         }
         return tree;
     }
 
-    private Tree convertTree() {
-        return null;
+    private Tree convertTree(TreeContour treeContour)  {
+        //Duyet TreeContour
+        Tree tree = new Tree();
+        CcEnvironment root = new CcEnvironment();
+        ArrayList<CcEnvironment.Contour> firstContour = new ArrayList<CcEnvironment.Contour>();
+        firstContour.add(treeContour.getKeyContour());
+        root.setContours(firstContour);
+        while (treeContour.getChildren() != null){
+            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance()!= -1){ //Neu con co 1 nut thi them vao goc
+                treeContour.getChildren().get(0).getKeyContour().printContour(); //in thu
+                root.addContour(treeContour.getChildren().get(0).getKeyContour());
+                treeContour = treeContour.getChildren().get(0);
+                continue;
+            }
+            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance()!= -1){ //Truong hop split cell gop
+                tree.addChild(convertTree(treeContour)); //Them node con la moi truong Contour connected moi
+            }
+            if(treeContour.getChildren().size() > 1){
+                for (int k = 0; k<treeContour.getChildren().size(); k++){
+                    tree.addChild(convertTree(treeContour.getChildren().get(k)));
+                }
+            }
+        }
+        return tree;
     }
 
     public static void main(String[] args) {
@@ -63,5 +99,6 @@ public class Environment {
             }
             System.out.println();
         }
+        e.setTreeContour();
     }
 }
