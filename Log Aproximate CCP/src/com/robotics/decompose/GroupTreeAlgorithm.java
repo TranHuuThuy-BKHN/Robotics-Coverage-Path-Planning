@@ -85,6 +85,65 @@ public class GroupTreeAlgorithm {
         return power <= B ? true : false;
     }
 
+    public ArrayList<Tree> getWorkingZone() {
+        ArrayList<Tree> A = new ArrayList<>();
+
+        for (int k = D; k >= 0; k--) {
+            // Các node ở độ sâu k
+            ArrayList<Tree> treesDepthK = getTreesByDepth(k);
+            Iterator iterator = treesDepthK.iterator();
+            while (iterator.hasNext()) {
+                Tree tree = (Tree) iterator.next();
+                if (isCoverageBySinglePathSubTree(tree, B) == false) {
+                    A.add(tree);
+                    iterator.remove();
+                    // xóa khỏi cây ban đầu
+                    dropSubTree(this.tree, tree);
+                }
+            }
+
+            // với các node còn lại ở độ sâu k
+            int i = 0, p = treesDepthK.size();
+            while (i < p) {
+                int j = 1;
+                Tree N = treesDepthK.get(i);
+                Tree Ni = new Tree(N.getRoot(), (ArrayList<Tree>) N.getChildren().clone()); // copy N
+                while (j++ < p - i && isCoverageBySinglePathSubTree(Ni, B) == false) {
+                    Tree Nj = treesDepthK.get(i + j);
+                    Ni.getChildren().add(Nj);
+                }
+                if (isCoverageBySinglePathSubTree(Ni, B) == false) {
+                    A.add(Ni);
+                    // xóa các node khỏi cây
+                    for (int h = i; h <= j; h++) {
+                        dropSubTree(this.tree, treesDepthK.get(h));
+                    }
+                }
+                i += j;
+            }
+        }
+
+        if (this.tree != null) A.add(tree);
+        return A;
+    }
+
+    private void dropSubTree(Tree tree, Tree t) {
+        if (tree == t) {
+            this.tree = null;
+            return;
+        }
+
+        if (tree.getChildren() == null) return;
+        Iterator iterator = tree.getChildren().iterator();
+        drop:
+        while (iterator.hasNext()) {
+            Tree temp = (Tree) iterator.next();
+            if (temp == t) {
+                iterator.remove();
+                break drop;
+            } else dropSubTree(temp, t);
+        }
+    }
 
     public static void main(String[] args) {
         Tree N7 = new Tree(new CcEnvironment(null), null);
@@ -99,5 +158,6 @@ public class GroupTreeAlgorithm {
 
         Tree N1 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N2, N3)));
         GroupTreeAlgorithm g = new GroupTreeAlgorithm(N1, 32);
+
     }
 }
