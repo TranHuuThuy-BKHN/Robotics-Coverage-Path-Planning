@@ -1,6 +1,6 @@
 package com.robotics.decompose;
 
-import com.robotics.decompose.CcEnvironment.TreeContour;
+import com.robotics.decompose.TreeContour;
 
 import java.awt.*;
 import java.lang.reflect.Array;
@@ -43,8 +43,16 @@ public class Environment {
         }
     }
 
+    public ArrayList<Cell> getCells(){
+        return this.cells;
+    }
+
     public void setTreeContour() {
         this.treeContour = this.treeContour.findAllContour(this.cells);
+    }
+
+    public TreeContour getTreeContour(){
+        return this.treeContour;
     }
 
     public Tree getTree(TreeContour treeContour) {
@@ -54,7 +62,7 @@ public class Environment {
         return tree;
     }
 
-    private Tree convertTree(TreeContour treeContour)  {
+    private Tree convertTree(TreeContour treeContour) {
         //Duyet TreeContour
         Tree tree = new Tree();
         CcEnvironment root = new CcEnvironment();
@@ -68,8 +76,8 @@ public class Environment {
                 treeContour = treeContour.getChildren().get(0);
                 continue;
             }
-            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance()!= -1){ //Truong hop split cell gop
-                tree.addChild(convertTree(treeContour)); //Them node con la moi truong Contour connected moi
+            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance() == -1){ //Truong hop split cell gop
+                tree.addChild(convertTree(treeContour.getChildren().get(0))); //Them node con la moi truong Contour connected moi
             }
             if(treeContour.getChildren().size() > 1){
                 for (int k = 0; k<treeContour.getChildren().size(); k++){
@@ -100,5 +108,7 @@ public class Environment {
             System.out.println();
         }
         e.setTreeContour();
+        Tree tree = e.convertTree(e.getTreeContour());
+        tree.printTree();
     }
 }

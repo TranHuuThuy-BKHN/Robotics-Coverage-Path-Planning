@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb85d5c-f1a8-48c7-914f-25c709dc265a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Log Aproximate CCP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Log Aproximate CCP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/gui/ReadMe.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" afterDir="false" />
@@ -36,7 +38,12 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="com.robotics.decompose" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Environment">
     <configuration name="CcEnvironment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -98,38 +105,62 @@
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="1231" y="385" width="398" height="278" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.27.1920.988@0.27.1920.988" timestamp="1589514742316" />
-    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl" timestamp="1589610588360">
+    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl" timestamp="1589612177199">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.988@0.27.1920.988" timestamp="1589610588360" />
-    <state width="1874" height="254" key="GridCell.Tab.0.bottom" timestamp="1589610606822">
+    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.988@0.27.1920.988" timestamp="1589612177199" />
+    <state width="1874" height="314" key="GridCell.Tab.0.bottom" timestamp="1589822986574">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="254" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
-    <state width="1874" height="254" key="GridCell.Tab.0.center" timestamp="1589610606822">
+    <state width="1874" height="314" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
+    <state width="1874" height="314" key="GridCell.Tab.0.center" timestamp="1589822986573">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="254" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
-    <state width="1874" height="254" key="GridCell.Tab.0.left" timestamp="1589610606821">
+    <state width="1874" height="314" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1589822986573" />
+    <state width="1874" height="314" key="GridCell.Tab.0.left" timestamp="1589822986573">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="254" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1589610606821" />
-    <state width="1874" height="254" key="GridCell.Tab.0.right" timestamp="1589610606822">
+    <state width="1874" height="314" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1589822986573" />
+    <state width="1874" height="314" key="GridCell.Tab.0.right" timestamp="1589822986574">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="254" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1589610606822" />
-    <state x="443" y="98" width="1024" height="852" key="SettingsEditor" timestamp="1589610628296">
+    <state width="1874" height="314" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
+    <state width="1874" height="314" key="GridCell.Tab.1.bottom" timestamp="1589822986575">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="443" y="98" width="1024" height="852" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1589610628296" />
-    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1589566885090">
+    <state width="1874" height="314" key="GridCell.Tab.1.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589822986575" />
+    <state width="1874" height="314" key="GridCell.Tab.1.center" timestamp="1589822986574">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1589566885090" />
+    <state width="1874" height="314" key="GridCell.Tab.1.center/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
+    <state width="1874" height="314" key="GridCell.Tab.1.left" timestamp="1589822986574">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="314" key="GridCell.Tab.1.left/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
+    <state width="1874" height="314" key="GridCell.Tab.1.right" timestamp="1589822986575">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state width="1874" height="314" key="GridCell.Tab.1.right/0.27.1920.988@0.27.1920.988" timestamp="1589822986575" />
+    <state x="896" y="103" width="1024" height="852" key="SettingsEditor" timestamp="1589612366621">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="896" y="103" width="1024" height="852" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1589612366621" />
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1589910798172">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1589910798172" />
     <state x="624" y="123" width="662" height="802" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589601119360">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="624" y="123" width="662" height="802" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1920.988@0.27.1920.988" timestamp="1589601119360" />
+    <state x="515" y="209" width="880" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1589685267441">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="515" y="209" width="880" height="631" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.27.1920.988@0.27.1920.988" timestamp="1589685267441" />
+    <state x="683" y="277" width="562" height="495" key="extract.method.dialog" timestamp="1589611247826">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="683" y="277" width="562" height="495" key="extract.method.dialog/0.27.1920.988@0.27.1920.988" timestamp="1589611247826" />
     <state x="624" y="236" key="run.anything.popup" timestamp="1589384513906">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
@@ -138,5 +169,26 @@
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="1098" y="243" width="672" height="678" key="search.everywhere.popup/0.27.1920.988@0.27.1920.988" timestamp="1589559712981" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
+          <line>195</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
+          <line>220</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

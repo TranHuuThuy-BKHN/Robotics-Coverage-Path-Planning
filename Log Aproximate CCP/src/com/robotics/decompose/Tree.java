@@ -18,6 +18,17 @@ public class Tree {
         this.children = children;
     }
 
+    public void printTree(){
+        Tree tree = this;
+        System.out.println("In cay theo thu tu truoc: ");
+        while (tree != null || tree.getChildren().size() != 0){
+            tree.root.printCcEnvironment();
+            for (int i = 0; i < tree.getChildren().size(); i++) {
+                tree.getChildren().get(i).printTree();
+            }
+        }
+    }
+
     public void setRoot(CcEnvironment cc){this.root = cc;}
 
     public void addRoot(CcEnvironment.Contour contour){

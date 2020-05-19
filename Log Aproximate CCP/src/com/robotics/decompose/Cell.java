@@ -64,6 +64,9 @@ public class Cell {
         this.distance = distance;
     }
 
+    public void printCell(){
+        System.out.println("("+this.x+", "+this.y+")");
+    }
 //    private int isSplitCell(){
 //        if(this != null && this.isObtacle() == false) return 0;
 //        if(this.x == 0){
