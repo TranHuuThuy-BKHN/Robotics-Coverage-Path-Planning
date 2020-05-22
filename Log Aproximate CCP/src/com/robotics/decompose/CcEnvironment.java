@@ -1,6 +1,7 @@
 package com.robotics.decompose;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author TranHuuThuy
@@ -11,7 +12,7 @@ public class CcEnvironment {
     /**
      * Một contour sẽ chứa các cell theo thứ tự từ trái qua phải
      */
-    class Contour {
+    static class Contour {
         private ArrayList<Cell> cells;
 
         public Contour(ArrayList<Cell> cells) {

@@ -144,20 +144,4 @@ public class GroupTreeAlgorithm {
             } else dropSubTree(temp, t);
         }
     }
-
-    public static void main(String[] args) {
-        Tree N7 = new Tree(new CcEnvironment(null), null);
-        Tree N8 = new Tree(new CcEnvironment(null), null);
-
-        Tree N4 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N8)));
-        Tree N6 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N7)));
-        Tree N5 = new Tree(new CcEnvironment(null), null);
-
-        Tree N2 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N4, N5)));
-        Tree N3 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N6)));
-
-        Tree N1 = new Tree(new CcEnvironment(null), new ArrayList<>(Arrays.asList(N2, N3)));
-        GroupTreeAlgorithm g = new GroupTreeAlgorithm(N1, 32);
-
-    }
 }
