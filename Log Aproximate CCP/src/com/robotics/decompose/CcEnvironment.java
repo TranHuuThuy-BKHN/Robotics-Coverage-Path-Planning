@@ -1,8 +1,10 @@
 package com.robotics.decompose;
 
+import com.sun.crypto.provider.JceKeyStore;
 import sun.util.resources.CalendarData;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author TranHuuThuy
@@ -39,7 +41,7 @@ public class CcEnvironment {
                 System.out.println("Khong co cells nao: ");
                 return;
             }
-            System.out.println("Print Contour distance " + this.cells.get(0).getDistance() + " : ");
+            System.out.println("Print Contour distance " + this.cells.get(0).getDistance() + " :");
             for (int i = 0; i < this.cells.size(); i++) {
                 System.out.print("(" + this.cells.get(i).x + ", " + this.cells.get(i).y+ ") " );
             }
@@ -83,21 +85,25 @@ public class CcEnvironment {
         }
 
         public Contour isMerge(Contour c){
-            ArrayList<Cell> mergerCell = this.cells;
+            ArrayList<Cell> mergerCell = new ArrayList<>();
             mergerCell.addAll(c.getCells());
+            mergerCell.addAll(this.cells);
             Set<Cell> setCells = new HashSet<>(mergerCell);
             Contour mergerCnt = new Contour(new ArrayList<>(setCells), mergerCell.get(0).getDistance());
+            System.out.println("Contour neu duoc merge: ");
             mergerCnt.printContour();
-            for (int i = 0; i <mergerCnt.getCells().size() - 2; i++) {
-                if(mergerCnt.getCells().get(i).x == mergerCnt.getCells().get(i+1).x) mergerCnt.getCells().remove(i); //neu 2 o lien tiep co cung toa do x thi xoa di (2 o trung nhau)
-                if(mergerCnt.getCells().get(i).x != mergerCnt.getCells().get(i+1).x + 1) return null;
+            for (int i = 0; i <mergerCnt.getCells().size() - 1; i++) {
+//                if(mergerCnt.getCells().get(i).x == mergerCnt.getCells().get(i+1).x) mergerCnt.getCells().remove(i); //neu 2 o lien tiep co cung toa do x thi xoa di (2 o trung nhau)
+                if(mergerCnt.getCells().get(i).x + 1 != mergerCnt.getCells().get(i+1).x) {
+                    return null;
+                }
             }
             System.out.println("Merger Contour distance = " + this.getCells().get(0).getDistance());
             mergerCnt.setDistance(-1); //Contour nao gop thanh mot thi co khoang cach la -1
             return mergerCnt;
         }
 
-        public Contour nextCnt() {
+        public ArrayList<Contour> nextCnt() { //Ham next Contour tra ve Arraylist Contour
             ArrayList<Cell> cells = this.getCells();
             Set<Cell> nextCnt = new HashSet<Cell>();
             int dis = 0;
@@ -113,7 +119,6 @@ public class CcEnvironment {
                     }
                     if (nextCell.getDistance() == cells.get(i).getDistance()+1){
                         nextCnt.add(nextCell);
-                        dis = nextCell.getDistance();
                     }
                 }
             }
@@ -123,14 +128,46 @@ public class CcEnvironment {
                 System.out.println("Khong ton tai contour tiep theo...");
                 return null;
             }
-            Contour resCnt = new Contour(res, dis);
-            return resCnt;
+
+            System.out.println("Len nextCnt size: " + res.size());
+
+            //Kiem tra xem co split cell phan doi hay khong
+            Contour tempCnt = new Contour(res, res.get(0).getDistance());
+            res = tempCnt.getCells();
+            ArrayList<Cell> temp = new ArrayList<>();
+            ArrayList<Contour> resCnts = new ArrayList<>();
+
+            if (res.size() == 1){
+                resCnts.add(tempCnt);
+                return resCnts;
+            }
+
+            temp.add(res.get(0));
+            for (int i = 0; i < res.size() - 1; i++) {
+                if (res.get(i).x + 1 != res.get(i+1).x){ // splitcell
+                    resCnts.add(new Contour(temp, temp.get(0).getDistance()));
+                    temp = new ArrayList<>();
+                    temp.add(res.get(i+1));
+                } else {
+                    temp.add(res.get(i+1));
+                }
+                if (i == res.size() - 2 && temp.size() != 0){
+                    resCnts.add(new Contour(temp, temp.get(0).getDistance()));
+                }
+            }
+            System.out.println("resCnts size: " + resCnts.size());
+            for (int i = 0; i < resCnts.size(); i++) {
+                resCnts.get(i).printContour();
+            }
+            return resCnts;
         }
     }
 
     private ArrayList<Contour> contours;
 
-    public CcEnvironment(){}
+    public CcEnvironment(){
+        this.contours = new ArrayList<>();
+    }
 
     public CcEnvironment(ArrayList<Contour> contours) {
         this.contours = contours;

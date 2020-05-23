@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4cb85d5c-f1a8-48c7-914f-25c709dc265a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Log Aproximate CCP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Log Aproximate CCP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/gui/ReadMe.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment$Contour$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment$Contour$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment$Contour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment$Contour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/CcEnvironment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/Environment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/Environment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/Tree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/Tree.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/TreeContour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Log Aproximate CCP/com/robotics/decompose/TreeContour.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/CcEnvironment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,11 +37,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Local_Search/Code/NewProject/CourseCPCBLS/src/cbls115676khmt61/LeDinhManh20162644" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -72,10 +75,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestSyntax" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.decompose.TestSyntax" />
+      <module name="Log Aproximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.decompose.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Environment" />
         <item itemvalue="Application.CcEnvironment" />
+        <item itemvalue="Application.TestSyntax" />
       </list>
     </recent_temporary>
   </component>
@@ -105,50 +122,54 @@
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="1231" y="385" width="398" height="278" key="#com.intellij.refactoring.move.moveInstanceMethod.MoveInstanceMethodDialog/0.27.1920.988@0.27.1920.988" timestamp="1589514742316" />
-    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl" timestamp="1589612177199">
+    <state x="738" y="282" width="440" height="491" key="FileChooserDialogImpl" timestamp="1590138348958">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="738" y="282" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.988@0.27.1920.988" timestamp="1589612177199" />
-    <state width="1874" height="314" key="GridCell.Tab.0.bottom" timestamp="1589822986574">
+    <state x="738" y="282" width="440" height="491" key="FileChooserDialogImpl/0.27.1920.988@0.27.1920.988" timestamp="1590138348958" />
+    <state width="1864" height="241" key="GridCell.Tab.0.bottom" timestamp="1590225915945">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
-    <state width="1874" height="314" key="GridCell.Tab.0.center" timestamp="1589822986573">
+    <state width="1864" height="241" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1590225915945" />
+    <state width="1864" height="241" key="GridCell.Tab.0.center" timestamp="1590225915944">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1589822986573" />
-    <state width="1874" height="314" key="GridCell.Tab.0.left" timestamp="1589822986573">
+    <state width="1864" height="241" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1590225915944" />
+    <state width="1864" height="241" key="GridCell.Tab.0.left" timestamp="1590225915943">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1589822986573" />
-    <state width="1874" height="314" key="GridCell.Tab.0.right" timestamp="1589822986574">
+    <state width="1864" height="241" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1590225915943" />
+    <state width="1864" height="241" key="GridCell.Tab.0.right" timestamp="1590225915944">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
-    <state width="1874" height="314" key="GridCell.Tab.1.bottom" timestamp="1589822986575">
+    <state width="1864" height="241" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1590225915944" />
+    <state width="1864" height="299" key="GridCell.Tab.1.bottom" timestamp="1590224253511">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.1.bottom/0.27.1920.988@0.27.1920.988" timestamp="1589822986575" />
-    <state width="1874" height="314" key="GridCell.Tab.1.center" timestamp="1589822986574">
+    <state width="1864" height="299" key="GridCell.Tab.1.bottom/0.27.1920.988@0.27.1920.988" timestamp="1590224253511" />
+    <state width="1864" height="299" key="GridCell.Tab.1.center" timestamp="1590224253511">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.1.center/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
-    <state width="1874" height="314" key="GridCell.Tab.1.left" timestamp="1589822986574">
+    <state width="1864" height="299" key="GridCell.Tab.1.center/0.27.1920.988@0.27.1920.988" timestamp="1590224253511" />
+    <state width="1864" height="299" key="GridCell.Tab.1.left" timestamp="1590224253511">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.1.left/0.27.1920.988@0.27.1920.988" timestamp="1589822986574" />
-    <state width="1874" height="314" key="GridCell.Tab.1.right" timestamp="1589822986575">
+    <state width="1864" height="299" key="GridCell.Tab.1.left/0.27.1920.988@0.27.1920.988" timestamp="1590224253511" />
+    <state width="1864" height="299" key="GridCell.Tab.1.right" timestamp="1590224253511">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state width="1874" height="314" key="GridCell.Tab.1.right/0.27.1920.988@0.27.1920.988" timestamp="1589822986575" />
-    <state x="896" y="103" width="1024" height="852" key="SettingsEditor" timestamp="1589612366621">
+    <state width="1864" height="299" key="GridCell.Tab.1.right/0.27.1920.988@0.27.1920.988" timestamp="1590224253511" />
+    <state x="443" y="204" width="1024" height="640" key="RollbackChangesDialog" timestamp="1589917028237">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="896" y="103" width="1024" height="852" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1589612366621" />
-    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1589910798172">
+    <state x="443" y="204" width="1024" height="640" key="RollbackChangesDialog/0.27.1920.988@0.27.1920.988" timestamp="1589917028237" />
+    <state x="795" y="89" width="1125" height="926" key="SettingsEditor" timestamp="1590222772013">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1589910798172" />
+    <state x="795" y="89" width="1125" height="926" key="SettingsEditor/0.27.1920.988@0.27.1920.988" timestamp="1590222772013" />
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog" timestamp="1590127314170">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="1076" y="348" key="com.intellij.ide.util.TipDialog/0.27.1920.988@0.27.1920.988" timestamp="1590127314170" />
     <state x="624" y="123" width="662" height="802" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1589601119360">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
@@ -161,10 +182,14 @@
       <screen x="0" y="27" width="1920" height="988" />
     </state>
     <state x="683" y="277" width="562" height="495" key="extract.method.dialog/0.27.1920.988@0.27.1920.988" timestamp="1589611247826" />
-    <state x="624" y="236" key="run.anything.popup" timestamp="1589384513906">
+    <state x="644" y="83" width="622" height="883" key="refactoring.ChangeSignatureDialog" timestamp="1590080954087">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
-    <state x="624" y="236" key="run.anything.popup/0.27.1920.988@0.27.1920.988" timestamp="1589384513906" />
+    <state x="644" y="83" width="622" height="883" key="refactoring.ChangeSignatureDialog/0.27.1920.988@0.27.1920.988" timestamp="1590080954087" />
+    <state x="624" y="236" key="run.anything.popup" timestamp="1590028950888">
+      <screen x="0" y="27" width="1920" height="988" />
+    </state>
+    <state x="624" y="236" key="run.anything.popup/0.27.1920.988@0.27.1920.988" timestamp="1590028950888" />
     <state x="1098" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1589559712981">
       <screen x="0" y="27" width="1920" height="988" />
     </state>
@@ -174,19 +199,49 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
-          <line>173</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TestSyntax.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TestSyntax.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java</url>
-          <line>220</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/TestSyntax.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

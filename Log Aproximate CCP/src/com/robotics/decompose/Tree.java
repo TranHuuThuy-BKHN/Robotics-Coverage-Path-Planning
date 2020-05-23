@@ -11,7 +11,10 @@ public class Tree {
 
     private ArrayList<Tree> children;
 
-    public Tree(){}
+    public Tree(){
+        this.root = new CcEnvironment();
+        this.children = new ArrayList<>();
+    }
 
     public Tree(CcEnvironment root, ArrayList<Tree> children) {
         this.root = root;
@@ -21,10 +24,13 @@ public class Tree {
     public void printTree(){
         Tree tree = this;
         System.out.println("In cay theo thu tu truoc: ");
-        while (tree != null || tree.getChildren().size() != 0){
+        if (tree!=null){
             tree.root.printCcEnvironment();
-            for (int i = 0; i < tree.getChildren().size(); i++) {
-                tree.getChildren().get(i).printTree();
+            if (tree.getChildren() != null && tree.getChildren().size() > 0){
+                System.out.println("Cay co: "+ tree.getChildren().size() + " con");
+                for (int i = 0; i < tree.getChildren().size(); i++) {
+                    tree.getChildren().get(i).printTree();
+                }
             }
         }
     }
@@ -32,6 +38,7 @@ public class Tree {
     public void setRoot(CcEnvironment cc){this.root = cc;}
 
     public void addRoot(CcEnvironment.Contour contour){
+        if (this.root == null) this.root = new CcEnvironment();
         this.root.addContour(contour);
     }
 
@@ -44,6 +51,7 @@ public class Tree {
     }
 
     public void addChild(Tree tree){
+        if (this.children==null) this.children = new ArrayList<>();
         this.children.add(tree);
     }
 

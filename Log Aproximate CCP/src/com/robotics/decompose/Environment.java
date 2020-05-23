@@ -1,12 +1,9 @@
 package com.robotics.decompose;
 
-import com.robotics.decompose.TreeContour;
-
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.ConcurrentModificationException;
 import java.util.LinkedList;
 
 public class Environment {
@@ -48,7 +45,8 @@ public class Environment {
     }
 
     public void setTreeContour() {
-        this.treeContour = this.treeContour.findAllContour(this.cells);
+        TreeContour temp = this.treeContour.findAllContour();
+        this.treeContour = temp;
     }
 
     public TreeContour getTreeContour(){
@@ -56,35 +54,45 @@ public class Environment {
     }
 
     public Tree getTree(TreeContour treeContour) {
-        if (tree == null) {
-            tree = convertTree(treeContour);
-        }
         return tree;
     }
 
-    private Tree convertTree(TreeContour treeContour) {
-        //Duyet TreeContour
+    public Tree convertTree(TreeContour treeContour) {
         Tree tree = new Tree();
-        CcEnvironment root = new CcEnvironment();
-        ArrayList<CcEnvironment.Contour> firstContour = new ArrayList<CcEnvironment.Contour>();
-        firstContour.add(treeContour.getKeyContour());
-        root.setContours(firstContour);
-        while (treeContour.getChildren() != null){
-            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance()!= -1){ //Neu con co 1 nut thi them vao goc
-                treeContour.getChildren().get(0).getKeyContour().printContour(); //in thu
-                root.addContour(treeContour.getChildren().get(0).getKeyContour());
-                treeContour = treeContour.getChildren().get(0);
-                continue;
-            }
-            if(treeContour.getChildren().size() == 1 && treeContour.getChildren().get(0).getKeyContour().getDistance() == -1){ //Truong hop split cell gop
-                tree.addChild(convertTree(treeContour.getChildren().get(0))); //Them node con la moi truong Contour connected moi
-            }
-            if(treeContour.getChildren().size() > 1){
-                for (int k = 0; k<treeContour.getChildren().size(); k++){
-                    tree.addChild(convertTree(treeContour.getChildren().get(k)));
+        if (treeContour != null) {
+            treeContour.getKeyContour().printContour();
+            tree.addRoot(treeContour.getKeyContour());
+            ArrayList<TreeContour> childs = treeContour.getChildren();
+            if (childs != null && childs.size() != 0) {
+                while (childs != null && childs.size() > 0) {
+                    System.out.println("Lap");
+                    if (childs.size() == 1){
+                        if (childs.get(0).getKeyContour().getDistance() != -1){
+                            System.out.println("Chi co 1 con va khong phai split gop: ");
+                            childs.get(0).getKeyContour().printContour(); //in thu
+                            tree.addRoot(childs.get(0).getKeyContour());
+                            childs = childs.get(0).getChildren();
+                        } else {
+                            System.out.println("Cell gop...");
+                            childs.get(0).getKeyContour().setDistance(childs.get(0).getKeyContour().getCells().get(0).getDistance());
+                            tree.addChild(convertTree(childs.get(0))); //Them node con la moi truong Contour connected moi
+                            break;
+                        }
+                    }
+                    else {
+                        System.out.println("Cell phan...");
+                        for (int k = 0; k < childs.size(); k++) {
+                            tree.addChild(convertTree(childs.get(k)));
+                        }
+                        break;
+                    }
                 }
+            } else {
+                System.out.println("Khong co contour phia sau, tra ve cay...");
+                return tree;
             }
         }
+        System.out.println("Tra ve cay...");
         return tree;
     }
 
@@ -108,7 +116,14 @@ public class Environment {
             System.out.println();
         }
         e.setTreeContour();
+        System.out.println("In cay contour");
+        e.getTreeContour().printTreeContour();
+        System.out.println("af: ");
+        System.out.println("Convert Tree...");
         Tree tree = e.convertTree(e.getTreeContour());
-        tree.printTree();
+        System.out.println("Print Tree...");
+        if (tree!=null)
+            tree.printTree();
+        else System.out.println("Cay rong");
     }
 }
