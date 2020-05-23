@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class Environment {
+public class Environment implements Cloneable {
     private ArrayList<Cell> cells;
 
     private Tree tree;
@@ -96,6 +96,7 @@ public class Environment {
         return tree;
     }
 
+
     public static void main(String[] args) {
 
         ArrayList<Cell> cells = new ArrayList<>();
@@ -104,11 +105,12 @@ public class Environment {
             for (int j = 0; j < 20; j++) {
                 Cell c = new Cell(j - col, row - i, false);
                 if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
-                if (i >= 10 && i <= 14 && j >= 14 && j <= 16) c.setObtacle(true);
+                if (i >= 10 && i <= 14 && j >= 8 && j <= 16) c.setObtacle(true);
                 cells.add(c);
             }
         }
         Environment e = new Environment(cells);
+
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
                 System.out.printf("%2d ", cells.get(20 * i + j).getDistance());

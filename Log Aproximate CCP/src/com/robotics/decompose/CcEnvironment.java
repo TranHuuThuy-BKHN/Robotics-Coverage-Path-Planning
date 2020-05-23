@@ -5,6 +5,8 @@ import sun.util.resources.CalendarData;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author TranHuuThuy
@@ -15,7 +17,6 @@ public class CcEnvironment {
     /**
      * Một contour sẽ chứa các cell theo thứ tự từ trái qua phải
      */
-
     //sort cells follow x
 
 
@@ -52,7 +53,7 @@ public class CcEnvironment {
             return cells;
         }
 
-        public int getDistance(){return this.distance;}
+//        public int getDistance(){return this.distance;}
 
         public void setDistance(int d){this.distance = d;}
 
@@ -110,14 +111,14 @@ public class CcEnvironment {
             for (int i = 0; i < cells.size(); i++) {
                 int x = cells.get(i).x;
                 int y = cells.get(i).y;
-                int xs[] = {x-1, x, x+1};
-                int ys[] = {y, y+1, y};
-                for (int j =0; j< 3; j++){
+                int xs[] = {x - 1, x, x + 1, x};
+                int ys[] = {y, y + 1, y, y - 1};
+                for (int j = 0; j < 4; j++) {
                     Cell nextCell = Cell.mapCells.get(new Key(xs[j], ys[j]));
-                    if (nextCell == null || nextCell.isObtacle() == true){ //trường hợp gặp chướng ngại vật mà không phải đầu cuối contour
+                    if (nextCell == null || nextCell.isObtacle() == true) { //trường hợp gặp chướng ngại vật mà không phải đầu cuối contour
                         continue;
                     }
-                    if (nextCell.getDistance() == cells.get(i).getDistance()+1){
+                    if (nextCell.getDistance() == cells.get(i).getDistance() + 1) {
                         nextCnt.add(nextCell);
                     }
                 }
@@ -137,21 +138,21 @@ public class CcEnvironment {
             ArrayList<Cell> temp = new ArrayList<>();
             ArrayList<Contour> resCnts = new ArrayList<>();
 
-            if (res.size() == 1){
+            if (res.size() == 1) {
                 resCnts.add(tempCnt);
                 return resCnts;
             }
 
             temp.add(res.get(0));
             for (int i = 0; i < res.size() - 1; i++) {
-                if (res.get(i).x + 1 != res.get(i+1).x){ // splitcell
+                if (res.get(i).x + 1 != res.get(i + 1).x) { // splitcell
                     resCnts.add(new Contour(temp, temp.get(0).getDistance()));
                     temp = new ArrayList<>();
-                    temp.add(res.get(i+1));
+                    temp.add(res.get(i + 1));
                 } else {
-                    temp.add(res.get(i+1));
+                    temp.add(res.get(i + 1));
                 }
-                if (i == res.size() - 2 && temp.size() != 0){
+                if (i == res.size() - 2 && temp.size() != 0) {
                     resCnts.add(new Contour(temp, temp.get(0).getDistance()));
                 }
             }
@@ -160,6 +161,9 @@ public class CcEnvironment {
                 resCnts.get(i).printContour();
             }
             return resCnts;
+        }
+        public int getDistance(){
+            return cells.get(0).getDistance();
         }
     }
 

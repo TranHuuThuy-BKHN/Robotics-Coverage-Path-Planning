@@ -1,6 +1,7 @@
 package com.robotics.decompose;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
 class Key {
     int x;
@@ -26,7 +27,7 @@ class Key {
     }
 }
 
-public class Cell {
+public class Cell implements Cloneable {
     // map chi số hàng, cột tới cell
     public static HashMap<Key, Cell> mapCells = new HashMap<>();
 
@@ -98,14 +99,42 @@ public class Cell {
 //        if (next.getDistance() != cur.getDistance() + 1) return null;
 //
 //    }
+public int distanceToCell(Cell c) {
+    if (obtacle || c.isObtacle()) return -1;
 
+    HashMap<Cell, Integer> mapDistance = new HashMap<>();
+    for (Cell cell : mapCells.values()) {
+        mapDistance.put(cell, cell.getDistance());
+        cell.setDistance(-1);
+    }
+
+    LinkedList<Cell> queue = new LinkedList<>();
+    queue.push(this);
+    this.setDistance(0);
+    serch:
+    while (!queue.isEmpty()) {
+        Cell cell = queue.poll();
+        int x = cell.x, y = cell.y;
+        int xs[] = {x, x, x - 1, x + 1}, ys[] = {y - 1, y + 1, y, y};
+
+        for (int i = 0; i < xs.length; i++) {
+            Cell nbh = Cell.mapCells.get(new Key(xs[i], ys[i]));
+            if (nbh != null && !nbh.isObtacle() && nbh.getDistance() == -1) {
+                nbh.setDistance(cell.getDistance() + 1);
+                queue.add(nbh);
+                if (nbh == c) break serch;
+            } else if (nbh != null && nbh.isObtacle()) {
+                nbh.setDistance(-1);
+            }
+        }
+    }
+    int dis = c.getDistance();
+    for (Cell cell : mapCells.values()) {
+        cell.setDistance(mapDistance.get(cell));
+    }
+    return dis;
+}
     public static void main(String[] args) {
-        Cell c = new Cell(0, 0, false);
-        Cell c2 = new Cell(-1, 0, true);
-        Cell c3 = new Cell(1, 0, false);
-
-        int x = c.x - 1, y = c.y;
-        System.out.println(mapCells.get(new Key(x, y)).isObtacle());
 
     }
 }
