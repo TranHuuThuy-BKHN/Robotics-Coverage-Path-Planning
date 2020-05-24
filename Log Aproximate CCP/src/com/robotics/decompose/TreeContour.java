@@ -123,17 +123,14 @@ public class TreeContour {
         treeContour.setParent(treeContour);
         while(true){
             ArrayList<CcEnvironment.Contour> nextContours = new ArrayList<CcEnvironment.Contour>(); //list chứa các contour tiếp theo
-//            ArrayList<Cell> nextCells = new ArrayList<Cell>(); //list chứa các Cells tiếp theo
             ArrayList<TreeContour> nextNode = new ArrayList<TreeContour>(); //list chứa các node con tiếp theo
             for (int i = 0; i < temp.size(); i++) { //Duyet cac Contour và Node TreeContour trong 1 mức nhất định
                 CcEnvironment.Contour cnt = temp.get(i);
                 TreeContour subtree = currentTree.get(i);
                 ArrayList<CcEnvironment.Contour> nextContour = cnt.nextCnt(); //Lấy Contour tiếp theo được sinh ra
                 if (nextContour != null){
-                    System.out.println("add to next contour...");
                     nextContours.addAll(nextContour);
                     for (int j = 0; j < nextContour.size(); j++) {
-                        nextContour.get(j).printContour();
                         subtree.addChild(new TreeContour(nextContour.get(j), subtree)); //add phan tu vao cay con
                          //Tạo ra cây con gồm Contour gồm tất cả các nút con.
                     }
@@ -145,25 +142,14 @@ public class TreeContour {
             }
             System.out.println(nextContours.size());
             if (nextContours == null || nextContours.size() == 0 ||nextContours.get(0).getCells().size() == 0){
-                System.out.println("Khong co Contour nao tiep theo...");
-                treeContour.getChildren().get(0).getKeyContour().printContour();
+//                System.out.println("Khong co Contour nao tiep theo...");
+//                treeContour.getChildren().get(0).getKeyContour().printContour();
                 return treeContour.getChildren().get(0);
             }
-            /*
-            //Tại đây có 3 trường hợp xảy ra
-            //Trường hợp 1, các contour con không có contour nào chứa split cell
-            //Trường hợp 2, các contour chứa split cell phân đôi, khi đó
-            //Trường hợp 3, các contour chứa split cell gộp,
-            Xét 2 Contour liên tiếp ArrayList Contour, nếu 2 contour gộp thành 1 tức là
-            split cell loại 3. Với loại 3 ta loại bỏ 2 Node con đó thay thế bằng Node to có
-            contour là gộp của 2 contour kia.
-            Ngoài ra ta còn phải xét từng Contour 1 xem nó có bị chia thành 2 không, nếu bị
-            chia thành 2 thì xóa node cũ đi và thêm vào 2 node mới.
-             */
             //Kiem tra xem co chua split cell gop khong
             if (nextContours.size() > 1){
                 for (int i = 0; i < nextContours.size() - 1; i++) {
-                    System.out.println("Kiem tra xem co cell gop hay k?");
+//                    System.out.println("Kiem tra xem co cell gop hay k?");
                     if (nextContours.get(i).isMerge(nextContours.get(i+1)) != null){ //neu co the gop
                         CcEnvironment.Contour newBigCnt = nextContours.get(i).isMerge(nextContours.get(i+1));
                         nextContours.remove(i);

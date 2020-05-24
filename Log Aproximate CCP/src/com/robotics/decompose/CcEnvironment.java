@@ -157,9 +157,6 @@ public class CcEnvironment {
                 }
             }
             System.out.println("resCnts size: " + resCnts.size());
-            for (int i = 0; i < resCnts.size(); i++) {
-                resCnts.get(i).printContour();
-            }
             return resCnts;
         }
         public int getDistance(){
@@ -205,6 +202,4 @@ public class CcEnvironment {
         ass.add(c2);
         ass.add(c3);
     }
-
-
 }
