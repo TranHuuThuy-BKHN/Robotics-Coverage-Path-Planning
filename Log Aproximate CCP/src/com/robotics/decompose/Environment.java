@@ -59,7 +59,7 @@ public class Environment implements Cloneable {
 
     public Tree convertTree(TreeContour treeContour) {
         Tree tree = new Tree();
-        if (treeContour != null) {
+        if (treeContour != null && treeContour.getKeyContour().getCells().size() != 0) {
             treeContour.getKeyContour().printContour();
             tree.addRoot(treeContour.getKeyContour());
             ArrayList<TreeContour> childs = treeContour.getChildren();
@@ -82,7 +82,9 @@ public class Environment implements Cloneable {
                     else {
                         System.out.println("Cell phan...");
                         for (int k = 0; k < childs.size(); k++) {
+//                            if (childs.get(k).getKeyContour().getCells().size() != 0)
                             tree.addChild(convertTree(childs.get(k)));
+                            childs.get(k).getKeyContour().setDistance(childs.get(k).getKeyContour().getCells().get(0).getDistance());
                         }
                         break;
                     }
@@ -105,7 +107,7 @@ public class Environment implements Cloneable {
             for (int j = 0; j < 20; j++) {
                 Cell c = new Cell(j - col, row - i, false);
                 if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
-                if (i >= 10 && i <= 14 && j >= 8 && j <= 16) c.setObtacle(true);
+                if (i >= 10 && i <= 14 && j >= 14 && j <= 16) c.setObtacle(true);
                 cells.add(c);
             }
         }
@@ -119,7 +121,7 @@ public class Environment implements Cloneable {
         }
         e.setTreeContour();
         System.out.println("In cay contour");
-        e.getTreeContour().printTreeContour();
+//        e.getTreeContour().printTreeContour();
         System.out.println("af: ");
         System.out.println("Convert Tree...");
         Tree tree = e.convertTree(e.getTreeContour());

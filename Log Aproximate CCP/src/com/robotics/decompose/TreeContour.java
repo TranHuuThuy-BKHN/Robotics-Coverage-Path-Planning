@@ -27,9 +27,15 @@ public class TreeContour {
     public TreeContour(CcEnvironment.Contour contour, TreeContour parent){
         this.keyContour = contour;
         this.parent = parent;
-        this.children = new ArrayList<TreeContour>();
+        this.children = new ArrayList<>();
     }
 
+    public TreeContour(ArrayList<Cell> cells, TreeContour parent){
+        CcEnvironment.Contour cnt = new CcEnvironment.Contour(cells, -1);
+        this.keyContour = cnt;
+        this.parent = parent;
+        this.children = new ArrayList<>();
+    }
 
     public void setChildren(ArrayList<TreeContour> children) {
         if (children == null) this.children = null;
@@ -130,6 +136,11 @@ public class TreeContour {
                 ArrayList<CcEnvironment.Contour> nextContour = cnt.nextCnt(); //Lấy Contour tiếp theo được sinh ra
                 if (nextContour != null){
                     nextContours.addAll(nextContour);
+                    if (nextContour.size()>1){
+                        for (int j = 0; j < nextContour.size(); j++) {
+                            nextContour.get(j).setDistance(-1);
+                        }
+                    }
                     for (int j = 0; j < nextContour.size(); j++) {
                         subtree.addChild(new TreeContour(nextContour.get(j), subtree)); //add phan tu vao cay con
                          //Tạo ra cây con gồm Contour gồm tất cả các nút con.
@@ -155,6 +166,7 @@ public class TreeContour {
                         nextContours.remove(i);
                         nextContours.remove(i);
                         nextContours.add(i, newBigCnt);
+                        System.out.println(newBigCnt.getDistance());
                         TreeContour paNode_i = nextNode.get(i).getParent();
                         TreeContour paNode_i1 = nextNode.get(i+1).getParent();
                         int index = paNode_i.delChild(nextNode.get(i)); //Xoa node con khoi cay
@@ -162,13 +174,17 @@ public class TreeContour {
                         nextNode.remove(i); //Xoa khoi do sau cung muc
                         nextNode.remove(i);
                         Random rd = new Random();
-                        if (rd.nextInt(2) == 0){ //Them ngau nhien vao 1 hoac vao 2
+                        if (rd.nextInt(2) == 0){ //Them ngau nhien vao 1 hoac vao 2, treeContour con lai them 1 treeContour khong co gi
                             TreeContour newNode = new TreeContour(newBigCnt, paNode_i);
                             paNode_i.addChild(index, newNode); //Them vao 1
+//                            ArrayList<Cell> ts = new ArrayList<>();
+//                            paNode_i1.addChild(new TreeContour(ts, paNode_i1));
                             nextNode.add(i, newNode);
                         } else {
                             TreeContour newNode = new TreeContour(newBigCnt, paNode_i1);
                             paNode_i1.addChild(index1, newNode); //Them vao 2
+//                            ArrayList<Cell> ts = new ArrayList<>();
+//                            paNode_i.addChild(new TreeContour(ts, paNode_i));
                             nextNode.add(i, newNode);
                         }
                     }

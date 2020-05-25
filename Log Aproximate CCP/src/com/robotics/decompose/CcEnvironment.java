@@ -160,7 +160,7 @@ public class CcEnvironment {
             return resCnts;
         }
         public int getDistance(){
-            return cells.get(0).getDistance();
+            return distance;
         }
     }
 
@@ -175,7 +175,7 @@ public class CcEnvironment {
     }
 
     public ArrayList<Contour> getContours() {
-        return contours;
+        return this.contours;
     }
 
     public void setContours(ArrayList<Contour> contours){
