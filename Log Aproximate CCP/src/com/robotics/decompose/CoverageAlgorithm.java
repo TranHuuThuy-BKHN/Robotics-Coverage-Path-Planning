@@ -72,7 +72,7 @@ public class CoverageAlgorithm {
             System.out.printf("closest cell");
             m.c.printCell();
             B1 -= m.c.getDistance();
-            Path p = cover(m.c, m.t, B1);
+            Path p = cover(m.c, t, m.t, B1);
             p.printPath();
 
             P.add(p);
@@ -98,7 +98,7 @@ public class CoverageAlgorithm {
      * @param B năng lượng robot tại c
      * @return đường dẫn di chuyển của robot trong t
      */
-    private Path cover(Cell c, Tree t, int B) {
+    private Path cover(Cell c,Tree root, Tree t, int B) {
         Path path = new Path();
         if (c == null) return path;
 
@@ -152,12 +152,12 @@ public class CoverageAlgorithm {
 
                 if (children == null || children.size() == 0) {
                     // di chuyen den node gan nhat chua tham het
-                    Move m = getClosestCell(t);
+                    Move m = getClosestCell(root);
                     if (m == null) break;
                     int d = c.distanceToCell(m.c);
                     c = m.c;
                     B -= d;
-                    Path p = cover(c, m.t, B);
+                    Path p = cover(c,root, m.t, B);
                     for (Cell cell : p.cells)
                         path.add(cell);
                     c = path.cells.get(path.cells.size() - 1);
@@ -180,7 +180,7 @@ public class CoverageAlgorithm {
                     int d = d1 < d2 ? d1 : d2;
                     c = d == d1 ? first.get(0) : first.get(first.size() - 1);
                     B -= d;
-                    Path p = cover(c, children.get(0), B);
+                    Path p = cover(c, root, children.get(0), B);
                     for (Cell cell : p.cells)
                         path.add(cell);
                     c = path.cells.get(path.cells.size() - 1);
@@ -197,7 +197,7 @@ public class CoverageAlgorithm {
 
     private Path remains(Tree t) {
         Move m = getClosestCell(t);
-        Path p = cover(m.c, m.t, B);
+        Path p = cover(m.c, t, m.t, B);
         if (getClosestCell(t) == null) {
             return p;
         }
