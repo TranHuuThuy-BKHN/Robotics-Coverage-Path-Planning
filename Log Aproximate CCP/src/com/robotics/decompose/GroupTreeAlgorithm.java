@@ -42,11 +42,10 @@ public class GroupTreeAlgorithm {
         return mapTreeID.get(depth);
     }
 
-    public boolean isCoverageBySinglePathSubTree(Tree t, int B) {
+    private boolean isCoverageBySinglePathSubTree(Tree t, int B) {
         Cell s = Cell.mapCells.get(new Key(0, 0));
         Stack<Tree> stack = new Stack<>();
         stack.push(t);
-
         int power = 0;
         while (!stack.isEmpty()) {
             Tree t2 = stack.pop();
@@ -63,7 +62,12 @@ public class GroupTreeAlgorithm {
                     (d == d2 && root.getContours().size() % 2 == 1)) {
                 s = lastContour.getCells().get(0);
             } else s = lastContour.getCells().get(lastContour.getCells().size() - 1);
-            power += d + root.getContours().size() * 2 - 2;
+
+            power += d - 1;
+            for (CcEnvironment.Contour contour : root.getContours()) {
+                power += contour.getCells().size() * 2 - 1;
+            }
+
 
             // sắp xếp các cây theo thứ tự gần điểm s
             ArrayList<Tree> children = t2.getChildren();
@@ -81,22 +85,24 @@ public class GroupTreeAlgorithm {
             for (Tree child : children)
                 stack.push(child);
         }
-
+        System.out.println("Power for subtree " + power);
         return power <= B ? true : false;
     }
 
     public ArrayList<Tree> getWorkingZone() {
         ArrayList<Tree> A = new ArrayList<>();
-
         for (int k = D; k >= 0; k--) {
+            System.out.println("--Depth of Tree--" + k);
             // Các node ở độ sâu k
             ArrayList<Tree> treesDepthK = getTreesByDepth(k);
             Iterator iterator = treesDepthK.iterator();
+
             while (iterator.hasNext()) {
                 Tree tree = (Tree) iterator.next();
                 if (isCoverageBySinglePathSubTree(tree, B) == false) {
                     A.add(tree);
                     iterator.remove();
+                    tree.printTree();
                     // xóa khỏi cây ban đầu
                     dropSubTree(this.tree, tree);
                 }

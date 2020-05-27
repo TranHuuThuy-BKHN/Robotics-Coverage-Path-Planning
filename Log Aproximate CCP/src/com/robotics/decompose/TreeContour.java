@@ -14,6 +14,8 @@ public class TreeContour {
         this.parent = pa;
     }
 
+    Random rd = new Random(1);
+
     public TreeContour(){
 
     }
@@ -173,7 +175,6 @@ public class TreeContour {
                         int index1 = paNode_i1.delChild(nextNode.get(i+1)); //Xoa node con khoi cay
                         nextNode.remove(i); //Xoa khoi do sau cung muc
                         nextNode.remove(i);
-                        Random rd = new Random();
                         if (rd.nextInt(2) == 0){ //Them ngau nhien vao 1 hoac vao 2, treeContour con lai them 1 treeContour khong co gi
                             TreeContour newNode = new TreeContour(newBigCnt, paNode_i);
                             paNode_i.addChild(index, newNode); //Them vao 1

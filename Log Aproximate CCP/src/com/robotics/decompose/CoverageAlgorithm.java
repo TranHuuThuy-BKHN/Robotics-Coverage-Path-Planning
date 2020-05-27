@@ -29,6 +29,23 @@ public class CoverageAlgorithm {
             if (res) mapVisitedCell.put(c, null);
             return res;
         }
+
+        public void printPath() {
+            for (Cell c : cells) {
+                System.out.print("(" + c.x + "," + c.y + ") -->");
+            }
+            System.out.println();
+        }
+    }
+
+    class Move {
+        Cell c;
+        Tree t;
+
+        public Move(Cell c, Tree t) {
+            this.c = c;
+            this.t = t;
+        }
     }
 
     private int B;
@@ -41,34 +58,50 @@ public class CoverageAlgorithm {
         mapVisitedCell = new HashMap<>();
     }
 
-    private ArrayList<ArrayList<Path>> coverage() {
+    public ArrayList<ArrayList<Path>> coverage() {
         ArrayList<Path> P = new ArrayList<>();
         ArrayList<Path> P1 = new ArrayList<>();
         ArrayList<Path> P2 = new ArrayList<>();
         int i = A.size() - 1;
+
         while (i >= 0) {
+            System.out.println("Coverage Working Zone " + (A.size() - i ));
             int B1 = B;
             Tree t = A.get(i);
-            Cell c = getClosestCell(t);
-            B1 -= c.getDistance();
-            Path p = cover(c, t, B1);
+            Move m = getClosestCell(t);
+            System.out.printf("closest cell");
+            m.c.printCell();
+            B1 -= m.c.getDistance();
+            Path p = cover(m.c, m.t, B1);
+            p.printPath();
 
             P.add(p);
             P1.add(p);
 
-            Path p2 = remains(t);
-            if (p2 != null) {
-                P.add(p2);
-                P2.add(p2);
+            Path r = remains(t);
+            if (r != null) {
+                System.out.println("Remain Coverage woking zone " + (A.size() - i ));
+                P.add(r);
+                P2.add(r);
+                r.printPath();
                 i--;
             }
+
         }
 
         return new ArrayList<>(Arrays.asList(P, P1, P2));
     }
 
+    /**
+     * @param c vị trí gần trạm sạc nhất chưa thăm
+     * @param t cây trong tập working zone chưa c
+     * @param B năng lượng robot tại c
+     * @return đường dẫn di chuyển của robot trong t
+     */
     private Path cover(Cell c, Tree t, int B) {
         Path path = new Path();
+        if (c == null) return path;
+
         while (c.getDistance() <= B) {
 
             path.add(c);
@@ -79,11 +112,13 @@ public class CoverageAlgorithm {
                     x, x, x - 1, x + 1};
             int ys[] = {y - 1, y + 1, y - 1, y + 1,
                     y - 1, y + 1, y, y};
-            // flag kiểm tra xem từ vị trí hiện tại có thể di chuyển đế vị trí hàng xóm nào nữa không
+
             boolean flag = false;
+
+            // di chuyển trong root của t hiện tại
             for (int i = 0; i < xs.length; i++) {
                 Cell cell = Cell.mapCells.get(new Key(xs[i], ys[i]));
-                if (cell != null && cell.isObtacle() == false && (mapVisitedCell.get(cell) == null || mapVisitedCell.get(cell) == false) && isCellInTree(c, t)) {
+                if (cell != null && cell.isObtacle() == false && (mapVisitedCell.get(cell) == null || mapVisitedCell.get(cell) == false) && isCellInRootTree(c, t)) {
                     if (cell.getDistance() == c.getDistance() && i < 4) {
                         c = cell;
                         B -= 2;
@@ -97,7 +132,7 @@ public class CoverageAlgorithm {
                         int d = 0;
                         for (int j = 0; j < xcs.length; j++) {
                             Cell nc = Cell.mapCells.get(new Key(xcs[j], ycs[j]));
-                            if (nc != null && nc.getDistance() == cell.getDistance() && (mapVisitedCell.get(nc) == null || mapVisitedCell.get(nc) == false)) {
+                            if (nc != null && nc.getDistance() == cell.getDistance() && isCellInRootTree(nc, t) && (mapVisitedCell.get(nc) == null || mapVisitedCell.get(nc) == false)) {
                                 d++;
                             }
                         }
@@ -111,73 +146,72 @@ public class CoverageAlgorithm {
                 }
             }
 
-            // nếu đã thăm toàn bộ đên node lá của tree, ta cần di chuyển đến node khác
+            // nếu đã thăm root của t
             if (!flag) {
                 ArrayList<Tree> children = t.getChildren();
-                Cell cell = null;
-                Tree tree = null;
-                int minDis = Integer.MIN_VALUE;
 
-                for (Tree child : children) {
-                    ArrayList<Cell> cells = child.getRoot().getContours().get(0).getCells();
-                    Cell cell1;
-                    int d;
-                    int d1 = c.distanceToCell(cells.get(0)), d2 = c.distanceToCell(cells.get(cells.size() - 1));
-                    if (d1 < d2) {
-                        cell1 = cells.get(0);
-                        d = d1;
-                    } else {
-                        cell1 = cells.get(cells.size() - 1);
-                        d = d2;
-                    }
-                    if (d > minDis) {
-                        minDis = d;
-                        cell = cell1;
-                        tree = child;
-                    }
+                if (children == null || children.size() == 0) {
+                    // di chuyen den node gan nhat chua tham het
+                    Move m = getClosestCell(t);
+                    if (m == null) break;
+                    int d = c.distanceToCell(m.c);
+                    c = m.c;
+                    B -= d;
+                    Path p = cover(c, m.t, B);
+                    for (Cell cell : p.cells)
+                        path.add(cell);
+                    c = path.cells.get(path.cells.size() - 1);
+                } else {
+                    // sắp xếp các cây con theo khoảng cách từ c
+                    final Cell c1 = c;
+                    Collections.sort(children, new Comparator<Tree>() {
+                        @Override
+                        public int compare(Tree o1, Tree o2) {
+                            ArrayList<Cell> first = o1.getRoot().getContours().get(0).getCells();
+                            ArrayList<Cell> second = o2.getRoot().getContours().get(0).getCells();
+                            int d1 = Math.min(c1.distanceToCell(first.get(0)), c1.distanceToCell(first.get(first.size() - 1)));
+                            int d2 = Math.min(c1.distanceToCell(second.get(0)), c1.distanceToCell(second.get(second.size() - 1)));
+                            return d1 - d2;
+                        }
+                    });
+                    //-------------------------------
+                    ArrayList<Cell> first = children.get(0).getRoot().getContours().get(0).getCells();
+                    int d1 = c.distanceToCell(first.get(0)), d2 = c.distanceToCell(first.get(first.size() - 1));
+                    int d = d1 < d2 ? d1 : d2;
+                    c = d == d1 ? first.get(0) : first.get(first.size() - 1);
+                    B -= d;
+                    Path p = cover(c, children.get(0), B);
+                    for (Cell cell : p.cells)
+                        path.add(cell);
+                    c = path.cells.get(path.cells.size() - 1);
+
                 }
-                Path p = cover(cell, tree, B - minDis);
-                if (p.cells.size() != 0) {
-                    path.cells.addAll(p.cells);
-                }
+
             }
-
+            if (c == path.cells.get(path.cells.size() - 1)) break;
         }
+
         return path;
     }
+
 
     private Path remains(Tree t) {
-        Cell c = getClosestCell(t);
-        if (c == null) return null;
-        int B1 = B - c.getDistance();
-        Path path = cover(c, t, B1);
-        Cell lastCell = path.cells.get(path.cells.size() - 1);
-        int x = lastCell.x, y = lastCell.y;
-        int xs[] = {x - 1, x - 1, x - 1, x, x, x + 1, x + 1, x + 1},
-                ys[] = {y + 1, y, y - 1, y + 1, y - 1, y - 1, y, y + 1};
-        boolean flag = false;
-        for (int i = 0; i < xs.length; i++) {
-            Cell cell = Cell.mapCells.get(new Key(xs[i], ys[i]));
-            if ((mapVisitedCell.get(cell) == null || mapVisitedCell.get(cell) == false) && isCellInTree(cell, t)) {
-                flag = true;
-                break;
-            }
+        Move m = getClosestCell(t);
+        Path p = cover(m.c, m.t, B);
+        if (getClosestCell(t) == null) {
+            return p;
         }
-
-        if (flag) {
-            for (Cell cell : path.cells)
-                mapVisitedCell.put(cell, false);
-            return null;
-        }
-        return path;
+        for (Cell c : p.cells)
+            mapVisitedCell.put(c, false);
+        return null;
     }
 
-    private Cell getClosestCell(Tree t) {
+    private Move getClosestCell(Tree t) {
         ArrayList<CcEnvironment.Contour> contours = t.getRoot().getContours();
         ArrayList<Cell> first = contours.get(0).getCells();
         if ((mapVisitedCell.get(first.get(0)) == null || mapVisitedCell.get(first.get(0)) == false)
                 && (mapVisitedCell.get(first.get(first.size() - 1)) == null || mapVisitedCell.get(first.get(first.size() - 1)) == false))
-            return first.get(0);
+            return new Move(first.get(0), t);
 
         for (CcEnvironment.Contour c : contours) {
             ArrayList<Cell> cells = c.getCells();
@@ -185,56 +219,49 @@ public class CoverageAlgorithm {
 
             if ((mapVisitedCell.get(fis) == null || !mapVisitedCell.get(fis))
                     && (mapVisitedCell.get(las) == null || !mapVisitedCell.get(las)))
-                return fis;
+                return new Move(fis, t);
 
             for (int i = 0; i < cells.size() - 1; i++) {
                 if ((mapVisitedCell.get(cells.get(i)) == null || !mapVisitedCell.get(cells.get(i)))
                         && (mapVisitedCell.get(cells.get(i + 1)) != null && mapVisitedCell.get(cells.get(i + 1)))) {
-                    return cells.get(i);
+                    return new Move(cells.get(i), t);
                 }
 
                 if ((mapVisitedCell.get(cells.get(i)) != null && mapVisitedCell.get(cells.get(i)))
                         && (mapVisitedCell.get(cells.get(i + 1)) == null || !mapVisitedCell.get(cells.get(i + 1)))) {
-                    return cells.get(i + 1);
+                    return new Move(cells.get(i + 1), t);
                 }
             }
         }
 
         // nếu nút gốc đã được thăm toàn bộ, thì ta cần xem các node con
-        ArrayList<Cell> cloestCellOfChildren = new ArrayList<>();
+        ArrayList<Move> cloestCellOfChildren = new ArrayList<>();
         if (t.getChildren() != null) {
             for (Tree child : t.getChildren()) {
-                Cell c = getClosestCell(child);
-                if (c != null)
+                Move m = getClosestCell(child);
+                if (m != null)
                     cloestCellOfChildren.add(getClosestCell(child));
             }
         }
 
         if (cloestCellOfChildren.size() == 0) return null;
 
-        Collections.sort(cloestCellOfChildren, new Comparator<Cell>() {
+        Collections.sort(cloestCellOfChildren, new Comparator<Move>() {
             @Override
-            public int compare(Cell o1, Cell o2) {
-                return o1.getDistance() - o2.getDistance();
+            public int compare(Move o1, Move o2) {
+                return o1.c.getDistance() - o2.c.getDistance();
             }
         });
 
         return cloestCellOfChildren.get(0);
     }
 
-    private boolean isCellInTree(Cell c, Tree t) {
+    private boolean isCellInRootTree(Cell c, Tree t) {
         ArrayList<CcEnvironment.Contour> contours = t.getRoot().getContours();
         for (CcEnvironment.Contour contour : contours) {
             if (contour.getCells().contains(c))
                 return true;
         }
-
-        if (t.getChildren() != null) {
-            for (Tree child : t.getChildren()) {
-                if (isCellInTree(c, child)) return true;
-            }
-        }
-
         return false;
     }
 }

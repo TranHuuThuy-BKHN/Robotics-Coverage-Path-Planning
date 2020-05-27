@@ -13,7 +13,7 @@ public class Environment implements Cloneable {
 
     private TreeContour treeContour;
 
-    public Environment(){
+    public Environment() {
     }
 
     public Environment(ArrayList<Cell> cells) {
@@ -40,24 +40,28 @@ public class Environment implements Cloneable {
         }
     }
 
-    public ArrayList<Cell> getCells(){
+    public ArrayList<Cell> getCells() {
         return this.cells;
     }
 
-    public void setTreeContour() {
+    private void setTreeContour() {
         TreeContour temp = this.treeContour.findAllContour();
         this.treeContour = temp;
     }
 
-    public TreeContour getTreeContour(){
+    public TreeContour getTreeContour() {
         return this.treeContour;
     }
 
-    public Tree getTree(TreeContour treeContour) {
+    public Tree getTree() {
+        if (tree == null) {
+            setTreeContour();
+            tree = convertTree(this.treeContour);
+        }
         return tree;
     }
 
-    public Tree convertTree(TreeContour treeContour) {
+    private Tree convertTree(TreeContour treeContour) {
         Tree tree = new Tree();
         if (treeContour != null && treeContour.getKeyContour().getCells().size() != 0) {
             treeContour.getKeyContour().printContour();
@@ -66,8 +70,8 @@ public class Environment implements Cloneable {
             if (childs != null && childs.size() != 0) {
                 while (childs != null && childs.size() > 0) {
                     System.out.println("Lap");
-                    if (childs.size() == 1){
-                        if (childs.get(0).getKeyContour().getDistance() != -1){
+                    if (childs.size() == 1) {
+                        if (childs.get(0).getKeyContour().getDistance() != -1) {
                             System.out.println("Chi co 1 con va khong phai split gop: ");
                             childs.get(0).getKeyContour().printContour(); //in thu
                             tree.addRoot(childs.get(0).getKeyContour());
@@ -78,8 +82,7 @@ public class Environment implements Cloneable {
                             tree.addChild(convertTree(childs.get(0))); //Them node con la moi truong Contour connected moi
                             break;
                         }
-                    }
-                    else {
+                    } else {
                         System.out.println("Cell phan...");
                         for (int k = 0; k < childs.size(); k++) {
 //                            if (childs.get(k).getKeyContour().getCells().size() != 0)
@@ -119,15 +122,12 @@ public class Environment implements Cloneable {
             }
             System.out.println();
         }
-        e.setTreeContour();
-        System.out.println("In cay contour");
-//        e.getTreeContour().printTreeContour();
-        System.out.println("af: ");
-        System.out.println("Convert Tree...");
-        Tree tree = e.convertTree(e.getTreeContour());
-        System.out.println("Print Tree...");
-        if (tree!=null)
-            tree.printTree();
-        else System.out.println("Cay rong");
+
+        Tree tree = e.getTree();
+        GroupTreeAlgorithm group_tree = new GroupTreeAlgorithm(tree, 80);
+        ArrayList<Tree> working_zone = group_tree.getWorkingZone();
+
+        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, working_zone);
+        algorithm.coverage();
     }
 }
