@@ -5,8 +5,8 @@ import java.util.*;
 
 public class CoverageAlgorithm {
 
-    class Path {
-        ArrayList<Cell> cells;
+    public class Path {
+        public ArrayList<Cell> cells;
 
         public Path() {
             cells = new ArrayList<>();
@@ -65,7 +65,7 @@ public class CoverageAlgorithm {
         int i = A.size() - 1;
 
         while (i >= 0) {
-            System.out.println("Coverage Working Zone " + (A.size() - i ));
+            System.out.println("Coverage Working Zone " + (A.size() - i));
             int B1 = B;
             Tree t = A.get(i);
             Move m = getClosestCell(t);
@@ -78,9 +78,14 @@ public class CoverageAlgorithm {
             P.add(p);
             P1.add(p);
 
+            if(getClosestCell(t) == null){
+                i--;
+                continue;
+            }
+
             Path r = remains(t);
             if (r != null) {
-                System.out.println("Remain Coverage woking zone " + (A.size() - i ));
+                System.out.println("Remain Coverage woking zone " + (A.size() - i));
                 P.add(r);
                 P2.add(r);
                 r.printPath();
@@ -98,7 +103,7 @@ public class CoverageAlgorithm {
      * @param B năng lượng robot tại c
      * @return đường dẫn di chuyển của robot trong t
      */
-    private Path cover(Cell c,Tree root, Tree t, int B) {
+    private Path cover(Cell c, Tree root, Tree t, int B) {
         Path path = new Path();
         if (c == null) return path;
 
@@ -157,7 +162,7 @@ public class CoverageAlgorithm {
                     int d = c.distanceToCell(m.c);
                     c = m.c;
                     B -= d;
-                    Path p = cover(c,root, m.t, B);
+                    Path p = cover(c, root, m.t, B);
                     for (Cell cell : p.cells)
                         path.add(cell);
                     c = path.cells.get(path.cells.size() - 1);
@@ -197,6 +202,7 @@ public class CoverageAlgorithm {
 
     private Path remains(Tree t) {
         Move m = getClosestCell(t);
+        if (m == null) return null;
         Path p = cover(m.c, t, m.t, B);
         if (getClosestCell(t) == null) {
             return p;

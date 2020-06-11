@@ -89,6 +89,7 @@ public class GroupTreeAlgorithm {
         return power <= B ? true : false;
     }
 
+
     public ArrayList<Tree> getWorkingZone() {
         ArrayList<Tree> A = new ArrayList<>();
         for (int k = D; k >= 0; k--) {

@@ -20,7 +20,7 @@ public class CcEnvironment {
     //sort cells follow x
 
 
-    static class Contour {
+    public static class Contour {
         private ArrayList<Cell> cells;
 
         private int distance;

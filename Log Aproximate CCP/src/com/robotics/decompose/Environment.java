@@ -110,7 +110,7 @@ public class Environment implements Cloneable {
             for (int j = 0; j < 20; j++) {
                 Cell c = new Cell(j - col, row - i, false);
                 if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
-                if (i >= 10 && i <= 14 && j >= 14 && j <= 16) c.setObtacle(true);
+                if (i >= 10 && i <= 14 && j >= 8 && j <= 10) c.setObtacle(true);
                 cells.add(c);
             }
         }
@@ -124,10 +124,11 @@ public class Environment implements Cloneable {
         }
 
         Tree tree = e.getTree();
-        GroupTreeAlgorithm group_tree = new GroupTreeAlgorithm(tree, 80);
-        ArrayList<Tree> working_zone = group_tree.getWorkingZone();
-
-        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, working_zone);
-        algorithm.coverage();
+        tree.printTree();
+//        GroupTreeAlgorithm group_tree = new GroupTreeAlgorithm(tree, 80);
+//        ArrayList<Tree> working_zone = group_tree.getWorkingZone();
+//
+//        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, working_zone);
+//        algorithm.coverage();
     }
 }
