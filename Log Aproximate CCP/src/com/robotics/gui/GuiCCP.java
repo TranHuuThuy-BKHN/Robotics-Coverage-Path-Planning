@@ -2,12 +2,13 @@ package com.robotics.gui;
 
 import com.robotics.decompose.*;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 
 public class GuiCCP extends Application {
 
-    public static final int SIZE = 500;
+    public static final int SIZE = 700;
 
     private Environment e;
 
@@ -49,7 +50,7 @@ public class GuiCCP extends Application {
 
                 labels[i * length + j] = new Label();
                 labels[i * length + j].setPrefSize(SIZE / length, SIZE / length);
-                labels[i * length + j].setStyle("-fx-border-color: black;");
+                labels[i * length + j].setStyle("-fx-border-color: white;");
                 mapL2C.put(labels[i * length + j], c);
                 mapC2L.put(c, labels[i * length + j]);
             }
@@ -68,7 +69,9 @@ public class GuiCCP extends Application {
                 if (c.isObtacle())
                     labels[i * length + j].setStyle("-fx-background-color: black;");
                 else if (c.getDistance() == 0) {
+                    labels[i * length + j].setAlignment(Pos.CENTER);
                     labels[i * length + j].setStyle("-fx-background-color: red;");
+                    labels[i * length + j].setText("S");
                 } else {
                     labels[i * length + j].setAlignment(Pos.CENTER);
                     labels[i * length + j].setText(String.valueOf(c.getDistance()));
@@ -79,6 +82,8 @@ public class GuiCCP extends Application {
 
         // draw working zone
         Tree t = e.getTree();
+        t.printTree();
+
         GroupTreeAlgorithm group = new GroupTreeAlgorithm(t, 80);
         ArrayList<Tree> A = group.getWorkingZone();
         for (int i = 0; i < A.size(); i++) {
@@ -86,9 +91,79 @@ public class GuiCCP extends Application {
         }
 
 
+        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, A);
+        ArrayList<ArrayList<CoverageAlgorithm.Path>> paths = algorithm.coverage();
+
+        ArrayList<CoverageAlgorithm.Path> P = paths.get(0);
+//
         Scene scene = new Scene(grid, SIZE, SIZE);
         state.setScene(scene);
+        state.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                System.exit(0);
+            }
+        });
         state.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Cell S = Cell.getChargingStation();
+                int timeDelay = 100;
+                for (int i = 0; i < P.size(); i++) {
+                    ArrayList<Cell> go = S.fromToCell(P.get(i).cells.get(0));
+                    for (int j = go.size() - 1; j >= 0; j--) {
+                        Label l = mapC2L.get(go.get(j));
+                        String style = l.getStyle();
+                        l.setStyle("-fx-background-color: purple;");
+                        try {
+                            Thread.sleep(timeDelay);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                        l.setStyle(style);
+                    }
+
+                    mapC2L.get(P.get(i).cells.get(0)).setStyle("-fx-background-color: white;");
+                    for (int j = 1; j < P.get(i).cells.size(); j++) {
+                        Cell c1 = P.get(i).cells.get(j - 1);
+                        Cell c2 = P.get(i).cells.get(j);
+                        System.out.println("Coverage Path " + (i + 1) + " " + c2.toString());
+                        ArrayList<Cell> path = c1.fromToCell(c2);
+                        for (int h = path.size() - 1; h >= 0; h--) {
+                            Label l = mapC2L.get(path.get(h));
+                            String style = l.getStyle();
+                            l.setStyle("-fx-background-color: purple;");
+                            try {
+                                Thread.sleep(timeDelay);
+                            } catch (InterruptedException e1) {
+                                e1.printStackTrace();
+                            }
+                            l.setStyle(style);
+                        }
+                        Label label = mapC2L.get(c2);
+                        label.setStyle("-fx-background-color: white;");
+                    }
+
+                    System.out.println("Come back charging station");
+                    ArrayList<Cell> back = P.get(i).cells.get(P.get(i).cells.size() - 1).fromToCell(S);
+                    for (int j = back.size() - 1; j >= 0; j--) {
+                        Label l = mapC2L.get(back.get(j));
+                        String style = l.getStyle();
+                        l.setStyle("-fx-background-color: purple;");
+                        try {
+                            Thread.sleep(timeDelay);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                        l.setStyle(style);
+                    }
+                }
+
+                System.out.println("Complete coverage");
+            }
+        }).start();
     }
 
     public static void main(String[] args) {
