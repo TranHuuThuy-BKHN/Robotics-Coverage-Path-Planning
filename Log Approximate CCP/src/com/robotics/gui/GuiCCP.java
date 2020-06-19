@@ -34,20 +34,18 @@ public class GuiCCP extends Application {
 
     @Override
     public void start(Stage state) {
-        int row = 19, col = 10;
-        int length = 20;
-        ArrayList<Cell> cells = new ArrayList<>();
+
+
+        Environment e = new Environment("src/com/robotics/data/Environment 1.txt");
+        int length = (int) Math.sqrt(e.getCells().size());
+
         this.labels = new Label[length * length];
         mapL2C = new HashMap<>();
         mapC2L = new HashMap<>();
 
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < length; j++) {
-                Cell c = new Cell(j - col, row - i, false);
-                if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
-                if (i >= 10 && i <= 14 && j >= 14 && j <= 16) c.setObtacle(true);
-                cells.add(c);
-
+                Cell c = e.getCells().get(i * length + j);
                 labels[i * length + j] = new Label();
                 labels[i * length + j].setPrefSize(SIZE / length, SIZE / length);
                 labels[i * length + j].setStyle("-fx-border-color: white;");
@@ -55,8 +53,6 @@ public class GuiCCP extends Application {
                 mapC2L.put(c, labels[i * length + j]);
             }
         }
-
-        e = new Environment(cells);
 
         // draw environment
         grid = new GridPane();

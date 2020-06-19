@@ -1,12 +1,15 @@
 package com.robotics.decompose;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Scanner;
 
-public class Environment implements Cloneable {
+public class Environment {
     private ArrayList<Cell> cells;
 
     private Tree tree;
@@ -14,6 +17,57 @@ public class Environment implements Cloneable {
     private TreeContour treeContour;
 
     public Environment() {
+    }
+
+    public Environment(String filename) {
+        Scanner sc = null;
+        try {
+            sc = new Scanner(new File(filename));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        int nrows = sc.nextInt(), ncols = sc.nextInt();
+        int row = 0, col = 0;
+        int e[][] = new int[nrows][ncols];
+        for (int i = 0; i < nrows; i++) {
+            for (int j = 0; j < ncols; j++) {
+                e[i][j] = sc.nextInt();
+                if (e[i][j] == 2) {
+                    row = i;
+                    col = j;
+                }
+            }
+        }
+        ArrayList<Cell> cells = new ArrayList<>();
+        for (int i = 0; i < nrows; i++) {
+            for (int j = 0; j < ncols; j++) {
+                Cell c = new Cell(j - col, row - i, false);
+                if (e[i][j] == 1) c.setObtacle(true);
+                cells.add(c);
+            }
+        }
+        System.out.println(Cell.mapCells.get(new Key(0,0)));
+        this.cells = cells;
+        this.treeContour = new TreeContour();
+        // tính khoảng các các cell tới trạm sạc, sử dụng BFS
+        Cell s = Cell.mapCells.get(new Key(0, 0)); // trạm sạc
+        s.setDistance(0);
+        LinkedList<Cell> queue = new LinkedList<>();
+        queue.push(s);
+        while (!queue.isEmpty()) {
+            Cell c = queue.poll(); // xóa và trả về phân tử đầu tiên
+            int x = c.x, y = c.y;
+            int xs[] = {x, x, x - 1, x + 1}, ys[] = {y - 1, y + 1, y, y};
+            for (int i = 0; i < xs.length; i++) {
+                Cell nbh = Cell.mapCells.get(new Key(xs[i], ys[i]));
+                if (nbh != null && !nbh.isObtacle() && nbh.getDistance() == -1) {
+                    nbh.setDistance(c.getDistance() + 1);
+                    queue.add(nbh);
+                } else if (nbh != null && nbh.isObtacle()) {
+                    nbh.setDistance(-1);
+                }
+            }
+        }
     }
 
     public Environment(ArrayList<Cell> cells) {
@@ -103,32 +157,7 @@ public class Environment implements Cloneable {
 
 
     public static void main(String[] args) {
-
-        ArrayList<Cell> cells = new ArrayList<>();
-        int row = 19, col = 10;
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
-                Cell c = new Cell(j - col, row - i, false);
-                if (i >= 5 && i <= 9 && j >= 5 && j <= 7) c.setObtacle(true);
-                if (i >= 10 && i <= 14 && j >= 8 && j <= 10) c.setObtacle(true);
-                cells.add(c);
-            }
-        }
-        Environment e = new Environment(cells);
-
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 20; j++) {
-                System.out.printf("%2d ", cells.get(20 * i + j).getDistance());
-            }
-            System.out.println();
-        }
-
-        Tree tree = e.getTree();
-        tree.printTree();
-//        GroupTreeAlgorithm group_tree = new GroupTreeAlgorithm(tree, 80);
-//        ArrayList<Tree> working_zone = group_tree.getWorkingZone();
-//
-//        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, working_zone);
-//        algorithm.coverage();
+        Environment e = new Environment("src/com/robotics/data/Environment 1.txt");
+        e.getTree();
     }
 }
