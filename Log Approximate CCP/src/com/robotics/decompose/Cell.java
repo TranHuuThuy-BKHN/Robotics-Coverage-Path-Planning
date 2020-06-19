@@ -4,29 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-class Key {
-    int x;
-    int y;
-
-    public Key(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Key == false) return false;
-        return x == ((Key) obj).x && y == ((Key) obj).y;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = 17; // any prime number
-        result = 31 * result + Integer.valueOf(x).hashCode();
-        result = 31 * result + Integer.valueOf(y).hashCode();
-        return result;
-    }
-}
 
 public class Cell implements Cloneable {
     // map chi số hàng, cột tới cell
@@ -48,6 +25,14 @@ public class Cell implements Cloneable {
         this.obtacle = obtacle;
         distance = -1;
         mapCells.put(new Key(x, y), this);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY(){
+        return y;
     }
 
     public boolean isObtacle() {
