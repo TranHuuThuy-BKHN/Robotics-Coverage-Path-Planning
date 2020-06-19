@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 
-public class Cell implements Cloneable {
+
+public class Cell{
     // map chi số hàng, cột tới cell
     public static HashMap<Key, Cell> mapCells = new HashMap<>();
 
@@ -25,14 +26,6 @@ public class Cell implements Cloneable {
         this.obtacle = obtacle;
         distance = -1;
         mapCells.put(new Key(x, y), this);
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY(){
-        return y;
     }
 
     public boolean isObtacle() {
