@@ -28,6 +28,14 @@ public class Cell{
         mapCells.put(new Key(x, y), this);
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public boolean isObtacle() {
         return obtacle;
     }
