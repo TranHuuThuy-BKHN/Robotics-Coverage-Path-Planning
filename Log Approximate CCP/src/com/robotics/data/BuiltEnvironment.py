@@ -18,7 +18,7 @@ if __name__ == '__main__':
                 color = sh.cell(r+1, c+1).fill.fgColor.value
                 if color == free_space: envioment += '0 '
                 elif color == obtacle : envioment += '1 '
-                else : envioment += '2 '
+                elif color == station_charging : envioment += '2 '
             envioment += '\n'
         with open(sn+'.txt', 'wt') as file:
             file.writelines(envioment)

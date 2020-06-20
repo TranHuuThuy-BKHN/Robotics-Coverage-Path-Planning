@@ -40,7 +40,7 @@ public class GuiCCP2 extends Application {
     public void start(Stage state) {
 
 
-        Environment2 e = new Environment2("src/com/robotics/data/Environment 3.txt");
+        Environment2 e = new Environment2("src/com/robotics/data/Environment 4.txt");
         int length = (int) Math.sqrt(e.getCells().size());
 
         this.labels = new Label[length * length];
@@ -110,10 +110,11 @@ public class GuiCCP2 extends Application {
         }
 
         if (t.getChildren() == null || t.getChildren().size() == 0) return;
+        System.out.println("Children size " + t.getChildren().size());
 
         for (Tree child : t.getChildren()) {
             color++;
-            drawTree(child,  color);
+            drawTree(child, color);
         }
     }
 }

@@ -36,7 +36,7 @@ public class GuiCCP extends Application {
     public void start(Stage state) {
 
 
-        Environment e = new Environment("src/com/robotics/data/Environment 1.txt");
+        Environment e = new Environment("src/com/robotics/data/Environment 2.txt");
         int length = (int) Math.sqrt(e.getCells().size());
 
         this.labels = new Label[length * length];
