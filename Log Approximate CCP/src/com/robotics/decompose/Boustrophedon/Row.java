@@ -128,6 +128,8 @@ public class Row {
                 nextRows.add(new Row(temp));
             }
         }
+        if (nextRows.size()==1 && nextRows.get(0).getCells().get(0).isObtacle() != this.getCells().get(0).isObtacle())
+            nextRows.get(0).setFlag(false);
         return nextRows;
     }
 

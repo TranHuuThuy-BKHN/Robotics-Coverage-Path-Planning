@@ -73,17 +73,19 @@ public class Tree {
     }
 
     public Tree findNearest(Tree t){
-        EnvironmentBoustrophedon evn = t.getRoot();
-        Tree temp = this;
-        if (evn.isNext(temp.getRoot()))
-            return temp;
+        EnvironmentBoustrophedon evn = this.getRoot();
+        if (evn.isNext(t.getRoot())){
+            System.out.println("Found nearst");
+            return t;
+        }
         else {
-            if (temp.getChildren()!=null){
-                for (int i = 0; i < temp.getChildren().size(); i++) {
-                    return temp.getChildren().get(i).findNearest(t);
+            if (t.getChildren()!=null){
+                for (int i = 0; i < t.getChildren().size(); i++) {
+                    return this.findNearest(t.getChildren().get(i));
                 }
             }
         }
+        System.out.println("Not Found nearest");
         return null;
     }
 
@@ -102,20 +104,44 @@ public class Tree {
         if (this.getRoot().isContainObstacle() == true && this.getChildren() == null){
             System.out.println("Loai bo moi truong chuong ngai vat");
             this.getParent().delChild(this);
-        } else
-            if (this.getRoot().isContainObstacle() == true && this.getChildren().get(0).getRoot().isHall()){
-                System.out.println("Xu ly phan ngoai le");
-                this.getParent().delChild(this);
-                Tree nearest = rt.findNearest(this);
-                this.setParent(nearest);
-                nearest.addChildren(this);
+            return;
+        }
+        if (this.getRoot().isContainObstacle() == true && this.getChildren() != null) {
+            int flag = -1;
+            for (int i = 0; i < this.getChildren().size(); i++) {
+                if (this.getChildren().get(i).getRoot().isContainObstacle() == false){
+                    flag = i;
+                    break;
+                }
             }
+            System.out.println("Xoa moi truong chuong ngai vat");
+            if (flag != -1 && this.getChildren().get(flag).getRoot().isHall() == true) {
+                System.out.println("Xu ly phan ngoai le");
+                Tree child = this.getChildren().get(flag);
+                child.getRoot().printEnvironmentBoustrophedon();
+                Tree nearest = child.findNearest(rt);
+                nearest.getRoot().printEnvironmentBoustrophedon();
+                child.setParent(nearest);
+                nearest.addChildren(child);
+            }
+            this.getParent().delChild(this);
+        }
         if (this.getChildren() != null){
             for (int i = 0; i < this.getChildren().size(); i++) {
                 this.getChildren().get(i).modifyTree(rt);
             }
         }
-//        return rt;
+    }
+
+    public void modify2(Tree rt){
+        if (this.getRoot().isContainObstacle() == true){
+            this.getParent().delChild(this);
+        }
+        if (this.getChildren() != null){
+            for (int i = 0; i < this.getChildren().size(); i++) {
+                this.getChildren().get(i).modify2(rt);
+            }
+        }
     }
 
     public void printTree(){

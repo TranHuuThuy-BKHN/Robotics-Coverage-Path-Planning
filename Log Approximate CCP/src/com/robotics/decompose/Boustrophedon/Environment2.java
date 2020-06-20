@@ -68,9 +68,11 @@ public class Environment2 extends Environment {
 
     public static void main(String[] args) {
 
-        Environment2 e = new Environment2("src/com/robotics/data/Environment 3.txt");
+        Environment2 e = new Environment2("src/com/robotics/data/Environment 4.txt");
 
         Tree tre = e.getTreeBoustrophedon();
+//        tre.printTree();
+//        tre.modifyTree(tre);
         tre.printTree();
     }
 }

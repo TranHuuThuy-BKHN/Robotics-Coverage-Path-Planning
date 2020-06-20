@@ -43,7 +43,9 @@ public class EnvironmentBoustrophedon {
     }
 
     public boolean isContainObstacle(){
-        if (this.getRows().get(0).getCells().get(0).isObtacle() == true){
+        this.printEnvironmentBoustrophedon();
+        System.out.println(this.getRows().get(0).getCells().get(0).isObtacle());
+        if (this.getRows().get(0).getCells().get(0).isObtacle() == true || this.getRows().get(this.getRows().size() - 1).getCells().get(0).isObtacle() == true){
             System.out.println("Moi truong chua chuong ngai vat...");
             return true;
         }
@@ -51,22 +53,33 @@ public class EnvironmentBoustrophedon {
     }
 
     public boolean isHall(){
+        System.out.println("Check Hall");
         Row firstRow = this.getRows().get(0);
         Cell firstCell = firstRow.getCells().get(0);
-        Cell lastCell = firstRow.getCells().get(firstRow.getCells().size());
-        Cell left = Cell.mapCells.get(new Key(firstCell.getX(), firstCell.getY()));
-        Cell right = Cell.mapCells.get(new Key(lastCell.getX(), lastCell.getY()));
+        Cell lastCell = firstRow.getCells().get(firstRow.getCells().size() - 1);
+        Cell left = Cell.mapCells.get(new Key(firstCell.getX()-1, firstCell.getY()));
+        Cell right = Cell.mapCells.get(new Key(lastCell.getX()+1, lastCell.getY()));
         if (left==null && right == null)
             return false;
         if (left==null && right.isObtacle() == true)
+        {
+            System.out.println("Hall");
             return true;
+        }
         if (left.isObtacle() == true && right == null)
+        {
+            System.out.println("Hall");
             return true;
+        }
+        if (left.isObtacle() == true && right.isObtacle() == true){
+            System.out.println("Hall");
+            return true;
+        }
         return false;
     }
 
     public boolean isNext(EnvironmentBoustrophedon evb){
-        Row lastRow = this.getRows().get(this.getRows().size());
+        Row lastRow = this.getRows().get(this.getRows().size() - 1);
         Row firstRow = evb.getRows().get(0);
         ArrayList<Row> nextRows = lastRow.nextRow();
         if (nextRows == null)
@@ -82,6 +95,7 @@ public class EnvironmentBoustrophedon {
         if (flag==true){
             for (int j = 0; j < firstRow.getCells().size(); j++) {
                 if (firstRow.getCells().get(j).getX() == nextRows.get(i).getCells().get(0).getX() && firstRow.getCells().get(j).getY() == nextRows.get(i).getCells().get(0).getY()){
+                    System.out.println("Found next");
                     return true;
                 }
             }

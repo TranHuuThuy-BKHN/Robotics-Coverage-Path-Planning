@@ -31,7 +31,7 @@ public class GuiCCP2 extends Application {
     private Label labels[];
     private GridPane grid;
 
-    private String[] colors = {"yellow", "blue", "pink", "orange", "green", "red"};
+    private String[] colors = {"yellow", "blue", "pink", "orange", "green", "red", "brown"};
 
     private HashMap<Label, Cell> mapL2C;
     private HashMap<Cell, Label> mapC2L;
@@ -40,7 +40,7 @@ public class GuiCCP2 extends Application {
     public void start(Stage state) {
 
 
-        Environment2 e = new Environment2("src/com/robotics/data/Environment 4.txt");
+        Environment2 e = new Environment2("src/com/robotics/data/Environment 7.txt");
         int length = (int) Math.sqrt(e.getCells().size());
 
         this.labels = new Label[length * length];
@@ -82,6 +82,8 @@ public class GuiCCP2 extends Application {
 
         // draw working zone
         Tree t = e.getTreeBoustrophedon();
+        t.modifyTree(t);
+        t.modify2(t);
         t.printTree();
         drawTree(t, 0);
 
