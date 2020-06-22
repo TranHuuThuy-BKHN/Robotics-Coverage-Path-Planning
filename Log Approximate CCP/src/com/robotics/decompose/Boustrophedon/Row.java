@@ -116,6 +116,16 @@ public class Row {
         if (nextCells.size() == 0)
             return null;
 
+//        System.out.println("Cell in next Row: ");
+//        for (int i = 0; i < nextCells.size(); i++) {
+//            nextCells.get(i).printCell();
+//        }
+
+        if (nextCells.size() == 1){
+            nextRows.add(new Row(nextCells));
+            return nextRows;
+        }
+
         ArrayList<Cell> temp = new ArrayList<>();
         temp.add(nextCells.get(0));
         for (int i = 0; i < nextCells.size() - 1; i++) {
@@ -139,8 +149,8 @@ public class Row {
             System.out.println("Not merge obstacle");
             return null;
         }
-        mergerCell.addAll(r.getCells());
         mergerCell.addAll(this.rows);
+        mergerCell.addAll(r.getCells());
         Set<Cell> setCells = new HashSet<>(mergerCell);
         Row mergerCnt = new Row(new ArrayList<>(setCells));
         System.out.println("Contour neu duoc merge: ");

@@ -124,7 +124,7 @@ public class TreeRow {
                         System.out.println("cell phan");
                         for (int j = 0; j < nextRow.size(); j++) {
                             nextRow.get(j).setFlag(false);
-                            nextRow.get(j).printRow();
+//                            nextRow.get(j).printRow();
                         }
                     }
                     for (int j = 0; j < nextRow.size(); j++) {
@@ -141,6 +141,12 @@ public class TreeRow {
                 //Xoa phan tu con thu nhat
                 return treeRow.getChildren().get(0);
             }
+
+            System.out.println("Cell in nextRows: ");
+            for (int i = 0; i < nextRows.size(); i++) {
+                nextRows.get(i).printRow();
+            }
+
             //Kiem tra xem co chua split cell gop khong
             if (nextRows.size() > 1){
                 for (int i = 0; i < nextRows.size() - 1; i++) {
