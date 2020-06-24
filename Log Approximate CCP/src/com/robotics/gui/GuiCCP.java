@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 public class GuiCCP extends Application {
 
-    public static final int SIZE = 700;
+    public static final int SIZE = 500;
 
     private Environment e;
 
@@ -36,7 +36,7 @@ public class GuiCCP extends Application {
     public void start(Stage state) {
 
 
-        Environment e = new Environment("src/com/robotics/data/Environment 2.txt");
+        Environment e = new Environment("src/com/robotics/data/Environment 8.txt");
         int length = (int) Math.sqrt(e.getCells().size());
 
         this.labels = new Label[length * length];
@@ -79,15 +79,19 @@ public class GuiCCP extends Application {
         // draw working zone
         Tree t = e.getTree();
         t.printTree();
+        int B = -1;
+        for (Cell c : e.getCells())
+            if (B < c.getDistance()) B = c.getDistance();
+        B = 2 * B + 22;
 
-        GroupTreeAlgorithm group = new GroupTreeAlgorithm(t, 80);
+        GroupTreeAlgorithm group = new GroupTreeAlgorithm(t, B);
         ArrayList<Tree> A = group.getWorkingZone();
         for (int i = 0; i < A.size(); i++) {
             drawTree(A.get(i), i % colors.length);
         }
 
 
-        CoverageAlgorithm algorithm = new CoverageAlgorithm(80, A);
+        CoverageAlgorithm algorithm = new CoverageAlgorithm(B, A);
         ArrayList<ArrayList<CoverageAlgorithm.Path>> paths = algorithm.coverage();
 
         ArrayList<CoverageAlgorithm.Path> P = paths.get(0);
@@ -157,7 +161,12 @@ public class GuiCCP extends Application {
                     }
                 }
 
-                System.out.println("Complete coverage");
+                int length = 0;
+                for (int i = 0; i < P.size(); i++) {
+                    length += P.get(i).length();
+                }
+                System.out.println("Complete coverage with length " + length + ", number of path " + P.size());
+
             }
         }).start();
     }

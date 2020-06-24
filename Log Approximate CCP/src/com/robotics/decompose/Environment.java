@@ -21,8 +21,9 @@ public class Environment {
 
     public Environment(String filename) {
         Scanner sc = null;
+        File file = new File(filename);
         try {
-            sc = new Scanner(new File(filename));
+            sc = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -38,6 +39,7 @@ public class Environment {
                 }
             }
         }
+        sc.close();
         ArrayList<Cell> cells = new ArrayList<>();
         for (int i = 0; i < nrows; i++) {
             for (int j = 0; j < ncols; j++) {
@@ -46,7 +48,7 @@ public class Environment {
                 cells.add(c);
             }
         }
-        System.out.println(Cell.mapCells.get(new Key(0,0)));
+        System.out.println(Cell.mapCells.get(new Key(0, 0)));
         this.cells = cells;
         this.treeContour = new TreeContour();
         // tính khoảng các các cell tới trạm sạc, sử dụng BFS

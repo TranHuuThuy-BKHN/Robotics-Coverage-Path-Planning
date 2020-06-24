@@ -11,6 +11,7 @@ public class Tree {
 
     private ArrayList<Tree> children;
 
+
     public Tree(){
         this.root = new CcEnvironment();
         this.children = new ArrayList<>();

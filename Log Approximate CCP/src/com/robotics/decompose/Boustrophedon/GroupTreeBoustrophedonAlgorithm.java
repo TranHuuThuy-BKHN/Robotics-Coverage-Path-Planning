@@ -1,21 +1,24 @@
-package com.robotics.decompose;
+package com.robotics.decompose.Boustrophedon;
+
+import com.robotics.decompose.Cell;
 
 import java.util.*;
 
-public class GroupTreeAlgorithm {
+public class GroupTreeBoustrophedonAlgorithm {
     private Tree tree;
-    private int D; // độ sâu node lớn nhất trong cây
-    private int B; // năng lượng tối đa của robot
+    private int D;
+    private int B;
 
     // Depth --> trees
     private HashMap<Integer, ArrayList<Tree>> mapTreeID;
 
-    public GroupTreeAlgorithm(Tree tree, int B) {
+    public GroupTreeBoustrophedonAlgorithm(Tree tree, int b) {
         this.tree = tree;
-        this.B = B;
+        B = b;
         D = Integer.MIN_VALUE;
         mapTreeID = new HashMap<>();
 
+        tree.depth = 0;
         tree.depth = 0;
         mapTreeID.put(0, new ArrayList<>(Arrays.asList(tree)));
 
@@ -42,54 +45,62 @@ public class GroupTreeAlgorithm {
         return mapTreeID.get(depth);
     }
 
-    private boolean isCoverageBySinglePathSubTree(Tree t, int B) {
-        Cell s = Cell.mapCells.get(new Key(0, 0));
+    private boolean isCoverageBySinglePathBoustrophedonSubTree(Tree t, int B) {
+        Cell s = Cell.getChargingStation();
         Stack<Tree> stack = new Stack<>();
         stack.push(t);
         int power = 0;
+
         while (!stack.isEmpty()) {
             Tree t2 = stack.pop();
-            CcEnvironment root = t2.getRoot();
-            CcEnvironment.Contour firstContour = root.getContours().get(0);
-            CcEnvironment.Contour lastContour = root.getContours().get(root.getContours().size() - 1);
-            Cell c1 = firstContour.getCells().get(0);
-            Cell c2 = firstContour.getCells().get(firstContour.getCells().size() - 1);
+            EnvironmentBoustrophedon e = t2.getRoot();
+            ArrayList<Cell> fistRow = e.getRows().get(0).getCells();
+            ArrayList<Cell> lastRow = e.getRows().get(e.getRows().size() - 1).getCells();
+            int d1 = s.distanceToCell(fistRow.get(0)),
+                    d2 = s.distanceToCell(fistRow.get(fistRow.size() - 1)),
+                    d3 = s.distanceToCell(lastRow.get(0)),
+                    d4 = s.distanceToCell(lastRow.get(lastRow.size() - 1));
 
-            int d1 = s.distanceToCell(c1);
-            int d2 = s.distanceToCell(c2);
-            int d = d1 < d2 ? d1 : d2;
-            if ((d == d1 && root.getContours().size() % 2 == 0) ||
-                    (d == d2 && root.getContours().size() % 2 == 1)) {
-                s = lastContour.getCells().get(0);
-            } else s = lastContour.getCells().get(lastContour.getCells().size() - 1);
-
+            int d = Math.min(Math.min(d1, d2), Math.min(d3, d4));
             power += d - 1;
-            for (CcEnvironment.Contour contour : root.getContours()) {
-                power += contour.getCells().size() * 2 - 1;
+            for (Row r : e.getRows())
+                power += r.getCells().size();
+
+            if ((d == d1 && e.getRows().size() % 2 == 0) || (d == d2 && e.getRows().size() % 2 == 1)) {
+                s = lastRow.get(0);
+            } else if ((d == d1 && e.getRows().size() % 2 == 1) || (d == d2 && e.getRows().size() % 2 == 0)) {
+                s = lastRow.get(lastRow.size() - 1);
+            } else if ((d == d3 && e.getRows().size() % 2 == 1) || (d == d4 && e.getRows().size() % 2 == 0)) {
+                s = fistRow.get(fistRow.size() - 1);
+            } else {
+                s = fistRow.get(0);
             }
-
-
             if (t2.getChildren() == null || t2.getChildren().size() == 0) continue;
-            // sắp xếp các cây theo thứ tự gần điểm s
             ArrayList<Tree> children = t2.getChildren();
-
-            final Cell s1 = s;
+            final Cell S = s;
             Collections.sort(children, new Comparator<Tree>() {
                 @Override
                 public int compare(Tree o1, Tree o2) {
-                    ArrayList<Cell> fistC1 = o1.getRoot().getContours().get(0).getCells();
-                    ArrayList<Cell> fistC2 = o2.getRoot().getContours().get(0).getCells();
-                    int d1 = Math.min(s1.distanceToCell(fistC1.get(0)), s1.distanceToCell(fistC1.get(fistC1.size() - 1)));
-                    int d2 = Math.min(s1.distanceToCell(fistC2.get(0)), s1.distanceToCell(fistC2.get(fistC2.size() - 1)));
+                    ArrayList<Cell> f1 = o1.getRoot().getRows().get(0).getCells();
+                    ArrayList<Cell> l1 = o1.getRoot().getRows().get(o1.getRoot().getRows().size() - 1).getCells();
+                    ArrayList<Cell> f2 = o2.getRoot().getRows().get(0).getCells();
+                    ArrayList<Cell> l2 = o2.getRoot().getRows().get(o2.getRoot().getRows().size() - 1).getCells();
+
+                    int d1 = Math.min(Math.min(S.distanceToCell(f1.get(0)), S.distanceToCell(f1.get(f1.size() - 1))),
+                            Math.min(S.distanceToCell(l1.get(0)), S.distanceToCell(l1.get(l1.size() - 1))));
+                    int d2 = Math.min(Math.min(S.distanceToCell(f2.get(0)), S.distanceToCell(f2.get(f2.size() - 1))),
+                            Math.min(S.distanceToCell(l2.get(0)), S.distanceToCell(l2.get(l2.size() - 1))));
                     return d1 - d2;
                 }
             });
+
             for (Tree child : children)
                 stack.push(child);
         }
         System.out.println("Power for subtree " + power);
         return power <= B ? true : false;
     }
+
 
     public ArrayList<Tree> getWorkingZone() {
         ArrayList<Tree> A = new ArrayList<>();
@@ -101,7 +112,7 @@ public class GroupTreeAlgorithm {
 
             while (iterator.hasNext()) {
                 Tree tree = (Tree) iterator.next();
-                if (isCoverageBySinglePathSubTree(tree, B) == false) {
+                if (isCoverageBySinglePathBoustrophedonSubTree(tree, B) == false) {
                     A.add(tree);
                     iterator.remove();
                     tree.printTree();
@@ -119,11 +130,11 @@ public class GroupTreeAlgorithm {
                 if (N.getChildren() == null || N.getChildren().size() == 0)
                     Ni = new Tree(N.getRoot(), null);
                 else Ni = new Tree(N.getRoot(), (ArrayList<Tree>) N.getChildren().clone()); // copy N
-                while (j++ < p - i && isCoverageBySinglePathSubTree(Ni, B) == false) {
+                while (j++ < p - i && isCoverageBySinglePathBoustrophedonSubTree(Ni, B) == false) {
                     Tree Nj = treesDepthK.get(i + j);
                     Ni.getChildren().add(Nj);
                 }
-                if (isCoverageBySinglePathSubTree(Ni, B) == false) {
+                if (isCoverageBySinglePathBoustrophedonSubTree(Ni, B) == false) {
                     A.add(Ni);
                     // xóa các node khỏi cây
                     for (int h = i; h <= j; h++) {
@@ -154,5 +165,13 @@ public class GroupTreeAlgorithm {
                 break drop;
             } else dropSubTree(temp, t);
         }
+    }
+
+    public static void main(String[] args) {
+        Environment2 e = new Environment2("src/com/robotics/data/Environment 3.txt");
+        Tree t = e.getTreeBoustrophedon();
+        GroupTreeBoustrophedonAlgorithm algorithm = new GroupTreeBoustrophedonAlgorithm(t, 50);
+        ArrayList<Tree> A = algorithm.getWorkingZone();
+        System.out.println(A.size());
     }
 }

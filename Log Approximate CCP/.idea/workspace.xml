@@ -1,7 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eea87bc5-7d71-4c45-ba62-db8f13926d2e" name="Default Changelist" comment="" />
+    <list default="true" id="eea87bc5-7d71-4c45-ba62-db8f13926d2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/BuiltEnvironment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Enviroment.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 6.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 7.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Environment 9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/data/Result.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm$Move.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm$Path.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/Environment2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/Row$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/Row.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/Tree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Boustrophedon/TreeRow.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CcEnvironment$Contour$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CcEnvironment$Contour.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CcEnvironment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Cell$1Cell2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Cell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CoverageAlgorithm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CoverageAlgorithm$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CoverageAlgorithm$Move.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CoverageAlgorithm$Path.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/CoverageAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Environment.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/GroupTreeAlgorithm$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/GroupTreeAlgorithm.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Key.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/Tree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/decompose/TreeContour.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP2$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP2$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/GuiCCP2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/gui/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Log Approximate CCP/com/robotics/result/result.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/data/Environment 0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/data/Environment 10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/data/Environment 8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/data/Environment 9.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/data/Result.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/gui/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/robotics/result/result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/data/Enviroment.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/data/Enviroment.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Row.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Row.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/TreeRow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/TreeRow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/CoverageAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/CoverageAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/GroupTreeAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/GroupTreeAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP2.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,17 +84,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Row.java">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#279#280#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="171">
+              <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/TreeRow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="184" column="1" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -28,46 +106,74 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+            <state relative-caret-position="432">
+              <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
               <folding>
-                <element signature="e#278#279#0" expanded="true" />
-                <element signature="e#310#311#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#532#533#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/GuiCCP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="399">
+              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/CoverageAlgorithm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+            <state relative-caret-position="1634">
+              <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
               <folding>
-                <element signature="e#205#206#0" expanded="true" />
+                <element signature="method#cover#0;class#CoverageAlgorithm#0" />
+                <element signature="method#remains#0;class#CoverageAlgorithm#0" />
+                <element signature="method#getClosestCell#0;class#CoverageAlgorithm#0" />
+                <element signature="method#isCellInRootTree#0;class#CoverageAlgorithm#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/GuiCCP2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            <state relative-caret-position="133">
+              <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
               <folding>
-                <element signature="e#393#394#0" expanded="true" />
-                <element signature="e#437#438#0" expanded="true" />
-                <element signature="e#468#469#0" expanded="true" />
+                <element signature="method#drawElementWorkingZone#0;class#GuiCCP2#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+              <folding>
+                <element signature="method#isCoverageBySinglePathBoustrophedonSubTree#0;class#GroupTreeBoustrophedonAlgorithm#0" />
+                <element signature="method#getWorkingZone#0;class#GroupTreeBoustrophedonAlgorithm#0" />
+                <element signature="e#4315#5975#1" />
+                <element signature="method#dropSubTree#0;class#GroupTreeBoustrophedonAlgorithm#0" />
               </folding>
             </state>
           </provider>
@@ -89,11 +195,26 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnviromentBoustrophedon.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Enviroment2.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/GroupTreeAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Tree.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Key.java" />
+        <option value="$PROJECT_DIR$/Log Approximate CCP.iml" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Environment.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/data/Environment 3.txt" />
+        <option value="$PROJECT_DIR$/src/com/robotics/data/Environment 2.txt" />
+        <option value="$PROJECT_DIR$/src/com/robotics/result/result.txt" />
+        <option value="$PROJECT_DIR$/src/com/robotics/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Row.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/CoverageAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/TreeRow.java" />
         <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java" />
         <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java" />
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Enviroment2.java" />
-        <option value="$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java" />
+        <option value="$PROJECT_DIR$/src/com/robotics/gui/GuiCCP2.java" />
       </list>
     </option>
   </component>
@@ -108,7 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,6 +252,13 @@
               <item name="Log Approximate CCP" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="robotics" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Log Approximate CCP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Log Approximate CCP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="robotics" type="462c0819:PsiDirectoryNode" />
               <item name="decompose" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -142,14 +269,30 @@
               <item name="decompose" type="462c0819:PsiDirectoryNode" />
               <item name="Boustrophedon" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Log Approximate CCP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Log Approximate CCP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="robotics" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Log Approximate CCP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Log Approximate CCP" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="robotics" type="462c0819:PsiDirectoryNode" />
+              <item name="result" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -157,6 +300,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\DELL\Desktop\Robotics-Coverage-Path-Planning\Log Approximate CCP\src\com\robotics\decompose\Boustrophedon" />
       <recent name="C:\Users\DELL\Desktop\Coverage-Path-Planning\Robotics-Coverage-Path-Planning Version 3\Robotics-Coverage-Path-Planning\Log Approximate CCP" />
     </key>
   </component>
@@ -171,6 +315,82 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Application.GuiCCP2">
+    <configuration name="CoverageBoustrophedonAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.decompose.Boustrophedon.CoverageBoustrophedonAlgorithm" />
+      <module name="Log Approximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.decompose.Boustrophedon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GroupTreeBoustrophedonAlgorithm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.decompose.Boustrophedon.GroupTreeBoustrophedonAlgorithm" />
+      <module name="Log Approximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.decompose.Boustrophedon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GuiCCP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.gui.GuiCCP" />
+      <module name="Log Approximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GuiCCP2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.gui.GuiCCP2" />
+      <module name="Log Approximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.robotics.gui.Main" />
+      <module name="Log Approximate CCP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.robotics.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GuiCCP2" />
+        <item itemvalue="Application.GuiCCP" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CoverageBoustrophedonAlgorithm" />
+        <item itemvalue="Application.GroupTreeBoustrophedonAlgorithm" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -189,81 +409,320 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20196672" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5057283" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27231467" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.5286416" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="e.getRows().size()" language="JAVA" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>e.getRows().size()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/ReadMe.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java">
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/ReadMe.txt" />
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        <state relative-caret-position="247">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="281" selection-start-line="281" selection-end-line="281" />
           <folding>
-            <element signature="e#205#206#0" expanded="true" />
+            <element signature="e#10388#10389#0" expanded="true" />
+            <element signature="e#15586#15587#0" expanded="true" />
+            <element signature="e#15631#15632#0" expanded="true" />
+            <element signature="e#31007#31008#0" expanded="true" />
+            <element signature="e#31039#31040#0" expanded="true" />
+            <element signature="e#31382#31383#0" expanded="true" />
+            <element signature="e#31427#31428#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
+        <state relative-caret-position="105">
+          <caret line="946" selection-start-line="946" selection-end-line="946" />
           <folding>
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#35532#35533#0" expanded="true" />
+            <element signature="e#35824#35825#0" expanded="true" />
+            <element signature="e#35852#35853#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="556" selection-start-line="556" selection-end-line="556" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 8.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/TreeContour.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/GroupTreeAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-end-column="31" />
+          <folding>
+            <element signature="method#GroupTreeAlgorithm#0;class#GroupTreeAlgorithm#0" />
+            <element signature="method#isCoverageBySinglePathSubTree#0;class#GroupTreeAlgorithm#0" />
+            <element signature="method#getWorkingZone#0;class#GroupTreeAlgorithm#0" />
+            <element signature="method#dropSubTree#0;class#GroupTreeAlgorithm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log Approximate CCP.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="72" lean-forward="true" selection-start-line="5" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Environment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 3.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="14" column="27" lean-forward="true" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 5.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 10.txt" />
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 7.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-49" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/data/Environment 9.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Environment2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="method#convertTree#0;class#Environment2#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Row.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="85" selection-start-line="7" selection-start-column="85" selection-end-line="7" selection-end-column="85" />
+        <state relative-caret-position="152">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1104#1105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/CoverageBoustrophedonAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="93" column="25" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+          <folding>
+            <element signature="class#Move#0;class#CoverageBoustrophedonAlgorithm#0" />
+            <element signature="method#CoverageBoustrophedonAlgorithm#0;class#CoverageBoustrophedonAlgorithm#0" />
+            <element signature="method#cover#0;class#CoverageBoustrophedonAlgorithm#0" />
+            <element signature="method#getClosetCell#0;class#CoverageBoustrophedonAlgorithm#0" />
+            <element signature="method#remains#0;class#CoverageBoustrophedonAlgorithm#0" />
+            <element signature="method#isCellInRootTree#0;class#CoverageBoustrophedonAlgorithm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/result/result.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/GuiCCP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/CoverageAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1634">
+          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+          <folding>
+            <element signature="method#cover#0;class#CoverageAlgorithm#0" />
+            <element signature="method#remains#0;class#CoverageAlgorithm#0" />
+            <element signature="method#getClosestCell#0;class#CoverageAlgorithm#0" />
+            <element signature="method#isCellInRootTree#0;class#CoverageAlgorithm#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/TreeRow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="184" column="1" selection-start-line="184" selection-start-column="1" selection-end-line="184" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/EnvironmentBoustrophedon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="117" column="1" selection-start-line="117" selection-start-column="1" selection-end-line="117" selection-end-column="1" />
+          <folding>
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/GroupTreeBoustrophedonAlgorithm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
+          <folding>
+            <element signature="method#isCoverageBySinglePathBoustrophedonSubTree#0;class#GroupTreeBoustrophedonAlgorithm#0" />
+            <element signature="method#getWorkingZone#0;class#GroupTreeBoustrophedonAlgorithm#0" />
+            <element signature="e#4315#5975#1" />
+            <element signature="method#dropSubTree#0;class#GroupTreeBoustrophedonAlgorithm#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/robotics/decompose/Boustrophedon/Tree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        <state relative-caret-position="171">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/robotics/gui/GuiCCP2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
           <folding>
-            <element signature="e#393#394#0" expanded="true" />
-            <element signature="e#437#438#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
+            <element signature="method#drawElementWorkingZone#0;class#GuiCCP2#0" />
           </folding>
         </state>
       </provider>

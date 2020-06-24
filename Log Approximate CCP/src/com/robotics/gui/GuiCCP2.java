@@ -1,9 +1,6 @@
 package com.robotics.gui;
 
-import com.robotics.decompose.Boustrophedon.Environment2;
-import com.robotics.decompose.Boustrophedon.EnvironmentBoustrophedon;
-import com.robotics.decompose.Boustrophedon.Row;
-import com.robotics.decompose.Boustrophedon.Tree;
+import com.robotics.decompose.Boustrophedon.*;
 import com.robotics.decompose.Cell;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -31,7 +28,7 @@ public class GuiCCP2 extends Application {
     private Label labels[];
     private GridPane grid;
 
-    private String[] colors = {"yellow", "blue", "pink", "orange", "green", "red", "brown"};
+    private String[] colors = {"yellow", "blue", "pink", "orange", "green", "brown"};
 
     private HashMap<Label, Cell> mapL2C;
     private HashMap<Cell, Label> mapC2L;
@@ -39,8 +36,7 @@ public class GuiCCP2 extends Application {
     @Override
     public void start(Stage state) {
 
-
-        Environment2 e = new Environment2("src/com/robotics/data/Environment 7.txt");
+        Environment2 e = new Environment2("src/com/robotics/data/Environment 11.txt");
         int length = (int) Math.sqrt(e.getCells().size());
 
         this.labels = new Label[length * length];
@@ -82,10 +78,21 @@ public class GuiCCP2 extends Application {
 
         // draw working zone
         Tree t = e.getTreeBoustrophedon();
-        t.modifyTree(t);
-        t.modify2(t);
-        t.printTree();
-        drawTree(t, 0);
+        int B = -1;
+        for (Cell c : e.getCells())
+            if (B < c.getDistance()) B = c.getDistance();
+        B = 2 * B + 22;
+        drawEnvironment(t);
+
+        GroupTreeBoustrophedonAlgorithm GTBA = new GroupTreeBoustrophedonAlgorithm(t, B);
+        ArrayList<Tree> A = GTBA.getWorkingZone();
+        for (Tree tree : A) {
+            drawElementWorkingZone(tree);
+            this.color++;
+        }
+
+        CoverageBoustrophedonAlgorithm algorithm = new CoverageBoustrophedonAlgorithm(B, A);
+        ArrayList<CoverageBoustrophedonAlgorithm.Path> P = algorithm.coverage().get(0);
 
         Scene scene = new Scene(grid, SIZE, SIZE);
         state.setScene(scene);
@@ -96,18 +103,87 @@ public class GuiCCP2 extends Application {
             }
         });
         state.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Cell S = Cell.getChargingStation();
+                int timeDelay = 100;
+                for (int i = 0; i < P.size(); i++) {
+                    ArrayList<Cell> go = S.fromToCell(P.get(i).cells.get(0));
+                    for (int j = go.size() - 1; j >= 0; j--) {
+                        Label l = mapC2L.get(go.get(j));
+                        String style = l.getStyle();
+                        l.setStyle("-fx-background-color: purple;");
+                        try {
+                            Thread.sleep(timeDelay);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                        l.setStyle(style);
+                    }
+                    if (P.get(i).cells.get(0) != S)
+                        mapC2L.get(P.get(i).cells.get(0)).setStyle("-fx-background-color: white;");
+                    for (int j = 1; j < P.get(i).cells.size(); j++) {
+                        Cell c1 = P.get(i).cells.get(j - 1);
+                        Cell c2 = P.get(i).cells.get(j);
+                        System.out.println("Coverage Path " + (i + 1) + " " + c2.toString());
+                        ArrayList<Cell> path = c1.fromToCell(c2);
+                        for (int h = path.size() - 1; h >= 0; h--) {
+                            Label l = mapC2L.get(path.get(h));
+                            String style = l.getStyle();
+                            l.setStyle("-fx-background-color: purple;");
+                            try {
+                                Thread.sleep(timeDelay);
+                            } catch (InterruptedException e1) {
+                                e1.printStackTrace();
+                            }
+                            l.setStyle(style);
+                        }
+                        Label label = mapC2L.get(c2);
+                        if(c2!=S)
+                        label.setStyle("-fx-background-color: white;");
+                    }
+
+                    System.out.println("Come back charging station");
+                    ArrayList<Cell> back = P.get(i).cells.get(P.get(i).cells.size() - 1).fromToCell(S);
+                    for (int j = back.size() - 1; j >= 0; j--) {
+                        Label l = mapC2L.get(back.get(j));
+                        String style = l.getStyle();
+                        l.setStyle("-fx-background-color: purple;");
+                        try {
+                            Thread.sleep(timeDelay);
+                        } catch (InterruptedException e1) {
+                            e1.printStackTrace();
+                        }
+                        l.setStyle(style);
+                    }
+                }
+
+                int length = 0;
+                for (int i = 0; i < P.size(); i++) {
+                    length += P.get(i).length();
+                }
+                System.out.println("Complete coverage with length " + length + ", number of path " + P.size());
+
+            }
+        }).start();
+
     }
 
     public static void main(String[] args) {
         launch(args);
     }
 
-    private void drawTree(Tree t, int color) {
+    private int color = 0;
+
+    private void drawEnvironment(Tree t) {
         EnvironmentBoustrophedon root = t.getRoot();
         for (Row r : root.getRows()) {
             for (Cell c : r.getCells()) {
+                if (c == Cell.getChargingStation()) continue;
                 Label l = mapC2L.get(c);
-                l.setStyle("-fx-background-color: " + colors[color % colors.length] + ";");
+                l.setStyle("-fx-background-color: " + colors[this.color % colors.length] + ";");
             }
         }
 
@@ -115,8 +191,23 @@ public class GuiCCP2 extends Application {
         System.out.println("Children size " + t.getChildren().size());
 
         for (Tree child : t.getChildren()) {
-            color++;
-            drawTree(child, color);
+            this.color++;
+            drawEnvironment(child);
+        }
+    }
+
+    private void drawElementWorkingZone(Tree t) {
+        EnvironmentBoustrophedon root = t.getRoot();
+        for (Row r : root.getRows()) {
+            for (Cell c : r.getCells()) {
+                if (c == Cell.getChargingStation()) continue;
+                Label l = mapC2L.get(c);
+                l.setStyle("-fx-background-color: " + colors[this.color % colors.length] + ";");
+            }
+        }
+        if (t.getChildren() == null || t.getChildren().size() == 0) return;
+        for (Tree child : t.getChildren()) {
+            drawElementWorkingZone(child);
         }
     }
 }

@@ -7,6 +7,7 @@ public class Tree {
     private ArrayList<Tree> children;
     private Tree parent;
 
+    int depth;
     public Tree(){}
 
     public Tree(EnvironmentBoustrophedon root, ArrayList<Tree> children) {

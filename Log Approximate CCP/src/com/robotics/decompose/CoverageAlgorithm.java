@@ -36,6 +36,25 @@ public class CoverageAlgorithm {
             }
             System.out.println();
         }
+
+        public int length() {
+            Cell S = Cell.getChargingStation();
+            int length = S.distanceToCell(cells.get(0)) + S.distanceToCell(cells.get(cells.size() - 1));
+            for (int i = 0; i < cells.size() - 1; i++) {
+                length += cells.get(i).distanceToCell(cells.get(i + 1));
+            }
+            return length;
+        }
+
+        public ArrayList<Cell> getFullPath() {
+            ArrayList<Cell> path = new ArrayList<>();
+            Cell S = Cell.getChargingStation();
+            path.addAll(S.fromToCell(cells.get(0)));
+            for (int i = 0; i < cells.size() - 1; i++)
+                path.addAll(cells.get(i).fromToCell(cells.get(i + 1)));
+            path.addAll(cells.get(cells.size() - 1).fromToCell(S));
+            return path;
+        }
     }
 
     class Move {
@@ -69,8 +88,11 @@ public class CoverageAlgorithm {
             int B1 = B;
             Tree t = A.get(i);
             Move m = getClosestCell(t);
-            System.out.printf("closest cell");
-            m.c.printCell();
+            if(m==null){
+                i--;
+                continue;
+            }
+            System.out.printf("closest cell " + m.c + ", distance " + m.c.getDistance() + ", B = " + B);
             B1 -= m.c.getDistance();
             Path p = cover(m.c, t, m.t, B1);
             p.printPath();
@@ -97,18 +119,12 @@ public class CoverageAlgorithm {
         return new ArrayList<>(Arrays.asList(P, P1, P2));
     }
 
-    /**
-     * @param c vị trí gần trạm sạc nhất chưa thăm
-     * @param t cây trong tập working zone chưa c
-     * @param B năng lượng robot tại c
-     * @return đường dẫn di chuyển của robot trong t
-     */
+
     private Path cover(Cell c, Tree root, Tree t, int B) {
         Path path = new Path();
         if (c == null) return path;
 
         while (c.getDistance() <= B) {
-
             path.add(c);
 
             int x = c.x, y = c.y;

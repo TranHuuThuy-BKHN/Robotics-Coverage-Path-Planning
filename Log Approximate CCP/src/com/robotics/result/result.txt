@@ -1,0 +1,40 @@
+
+Environment 0.txt, B = 80
+Algorithm 1, Length 1168, number of paths 15
+Algorithm 2, Length 648, number of paths 8
+
+Environment 1.txt, B = 80
+Algorithm 1, Length 1204, number of paths 16
+Algorithm 2, Length 654, number of paths 8
+
+Environment 2.txt, B = 80
+Algorithm 1, Length 1248, number of paths 17
+Algorithm 2, Length 666, number of paths 8
+
+Environment 3.txt, B = 64
+Algorithm 1, Length 1490, number of paths 24
+Algorithm 2, Length 768, number of paths 12
+
+Environment 4.txt, B = 94
+Algorithm 1, Length 1262, number of paths 14
+Algorithm 2, Length 678, number of paths 8
+
+Environment 5.txt, B = 74
+Algorithm 1, Length 1452, number of paths 21
+Algorithm 2, Length 928, number of paths 13
+
+Environment 6.txt, B = 88
+Algorithm 1, Length 1244, number of paths 15
+Algorithm 2, Length 632, number of paths 8
+
+Environment 7.txt, B = 86
+Algorithm 1, Length 1264, number of paths 16
+Algorithm 2, Length 734, number of paths 9
+
+Environment 8.txt, B = 82
+Algorithm 1, Length 1188, number of paths 15
+Algorithm 2, Length 652, number of paths 9
+
+Environment 9.txt, B = 86
+Algorithm 1, Length 1580, number of paths 19
+Algorithm 2, Length 698, number of paths 8
