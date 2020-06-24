@@ -124,7 +124,6 @@ public class TreeRow {
                         System.out.println("cell phan");
                         for (int j = 0; j < nextRow.size(); j++) {
                             nextRow.get(j).setFlag(false);
-//                            nextRow.get(j).printRow();
                         }
                     }
                     for (int j = 0; j < nextRow.size(); j++) {

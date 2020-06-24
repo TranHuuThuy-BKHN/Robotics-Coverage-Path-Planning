@@ -44,7 +44,7 @@ public class EnvironmentBoustrophedon {
 
     public boolean isContainObstacle(){
         this.printEnvironmentBoustrophedon();
-        System.out.println(this.getRows().get(0).getCells().get(0).isObtacle());
+//        System.out.println(this.getRows().get(0).getCells().get(0).isObtacle());
         if (this.getRows().get(0).getCells().get(0).isObtacle() == true || this.getRows().get(this.getRows().size() - 1).getCells().get(0).isObtacle() == true){
             System.out.println("Moi truong chua chuong ngai vat...");
             return true;

@@ -33,6 +33,11 @@ public class Tree {
         this.children.add(child);
     }
 
+    public void addChildren(int i, Tree child){
+        if (children == null) children = new ArrayList<>();
+        this.children.add(i, child);
+    }
+
     public Tree leftSibling(){
         Tree pa = this.parent;
         ArrayList<Tree> children = this.getChildren();
@@ -63,6 +68,10 @@ public class Tree {
         this.parent = t;
     }
 
+    public void setChildren(ArrayList<Tree> c){
+        this.children = c;
+    }
+
     public int chooseChild(){
         int i = 0;
         for (; i < this.getChildren().size(); i++) {
@@ -72,7 +81,26 @@ public class Tree {
         return i;
     }
 
-    public Tree findNearest(Tree t){
+    public Tree findNearestDown(Tree t){
+        EnvironmentBoustrophedon evn = this.getRoot();
+        if (t.getRoot().isNext(evn)){
+            System.out.println("Found nearst");
+            return t;
+        }
+        else {
+            if (t.getChildren()!=null){
+                for (int i = 0; i < t.getChildren().size(); i++) {
+                    Tree res =  this.findNearestDown(t.getChildren().get(i));
+                    if (res != null)
+                        return res;
+                }
+            }
+        }
+        System.out.println("Not Found nearest");
+        return null;
+    }
+
+    public Tree findNearestUp(Tree t){
         EnvironmentBoustrophedon evn = this.getRoot();
         if (evn.isNext(t.getRoot())){
             System.out.println("Found nearst");
@@ -81,7 +109,9 @@ public class Tree {
         else {
             if (t.getChildren()!=null){
                 for (int i = 0; i < t.getChildren().size(); i++) {
-                    return this.findNearest(t.getChildren().get(i));
+                    Tree res =  this.findNearestUp(t.getChildren().get(i));
+                    if (res != null)
+                        return res;
                 }
             }
         }
@@ -104,7 +134,6 @@ public class Tree {
         if (this.getRoot().isContainObstacle() == true && this.getChildren() == null){
             System.out.println("Loai bo moi truong chuong ngai vat");
             this.getParent().delChild(this);
-            return;
         }
         if (this.getRoot().isContainObstacle() == true && this.getChildren() != null) {
             int flag = -1;
@@ -118,11 +147,28 @@ public class Tree {
             if (flag != -1 && this.getChildren().get(flag).getRoot().isHall() == true) {
                 System.out.println("Xu ly phan ngoai le");
                 Tree child = this.getChildren().get(flag);
-                child.getRoot().printEnvironmentBoustrophedon();
-                Tree nearest = child.findNearest(rt);
-                nearest.getRoot().printEnvironmentBoustrophedon();
-                child.setParent(nearest);
-                nearest.addChildren(child);
+                if (child.getChildren() != null){
+                    for (int i = 0; i < child.getChildren().size(); i++) {
+                        if (child.getChildren().get(i).getRoot().isContainObstacle() == false){
+                            Tree kid = child.getChildren().get(i);
+                            Tree nearest = kid.findNearestDown(rt);
+                            Tree pa = child.getParent();
+                            pa.delChild(child);
+                            child.delChild(kid);
+                            child.setParent(kid);
+                            kid.addChildren(0, child);
+                            kid.setParent(nearest);
+                            nearest.addChildren(0, kid);
+                        }
+                    }
+                } else {
+                    child.getRoot().printEnvironmentBoustrophedon();
+                    Tree nearest = child.findNearestUp(rt);
+                    System.out.println("Environment nearest: ");
+                    nearest.getRoot().printEnvironmentBoustrophedon();
+                    child.setParent(nearest);
+                    nearest.addChildren(child);
+                }
             }
             this.getParent().delChild(this);
         }
